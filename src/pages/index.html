@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechatronics Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* MUDANÇA: Fundo claro (Cinza Gelo) */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; 
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* MANTIDO: Menu escuro para autoridade e contraste */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1a1a2e; 
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #e94560;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            /* MUDANÇA: Azul Marinho Sólido - Profissional */
+            color: #1a1a2e; 
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            /* MUDANÇA: Cinza escuro para leitura fácil */
+            color: #555; 
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            /* MUDANÇA: Gradiente mais sutil e tecnológico */
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .hero-image::before {
+            content: '📸';
+            font-size: 4rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        /* BADGES: Estilo "Tech clean" */
+        .tech-badge {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            margin: 0.4rem;
+            background: #ffffff;
+            border: 1px solid #1a1a2e;
+            border-radius: 6px; /* Menos arredondado = mais masculino */
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-3px);
+            background: #1a1a2e;
+            color: white;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #1a1a2e;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px; /* Linha mais curta e grossa */
+            height: 6px;
+            background: #e94560; /* Acento vermelho */
+        }
+
+        /* CARTÕES: Fundo branco com sombra suave (Estilo Material Design) */
+        .about-content, .project-card, .skill-card, .contact-section, .timeline-content {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+            border: 1px solid #e1e4e8; /* Borda sutil */
+        }
+
+        .about-content {
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: #e1e4e8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #1a1a2e;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: #2c3e50; /* Base escura para as imagens */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Cores sólidas e profissionais para os placeholders */
+        .project-card:nth-child(1) .project-image { background: #2c3e50; }
+        .project-card:nth-child(2) .project-image { background: #34495e; }
+        .project-card:nth-child(3) .project-image { background: #16a085; }
+        .project-card:nth-child(4) .project-image { background: #2980b9; }
+        .project-card:nth-child(5) .project-image { background: #8e44ad; }
+        .project-card:nth-child(6) .project-image { background: #c0392b; }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            border-left: 5px solid #1a1a2e; /* Borda lateral grossa */
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateX(5px);
+            border-left-color: #e94560;
+        }
+
+        .skill-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.7rem 0;
+            color: #555;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-card li::before {
+            content: '›'; /* Seta simples ao invés de check */
+            position: absolute;
+            left: 0;
+            color: #e94560;
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1rem;
+            top: 0.8rem;
+        }
+
+        .contact-section {
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: 2px solid #1a1a2e;
+        }
+
+        .contact-links a:hover {
+            background: #1a1a2e;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #e94560; /* Botão de destaque vermelho */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .btn:hover {
+            background: #d6304c;
+            transform: scale(1.05);
+        }
+
+        .education-timeline {
+            position: relative;
+            padding: 2rem 0;
+            /* Cria espaço na esquerda para a linha e os pontos */
+            padding-left: 30px; 
+        }
+
+        /* A linha vertical cinza */
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; /* Alinhada totalmente à esquerda */
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #e1e4e8;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        /* O ponto da linha do tempo */
+        .timeline-dot {
+            position: absolute;
+            /* Posicionamento fino para centralizar o ponto na linha de 4px */
+            left: -8px; 
+            top: 25px; /* Alinha com o topo do cartão */
+            width: 20px;
+            height: 20px;
+            background: #1a1a2e; /* Cor escura do tema */
+            border: 4px solid #fff; /* Borda branca para destacar da linha */
+            border-radius: 50%;
+            z-index: 2; /* Garante que o ponto fique SOBRE a linha */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* O cartão branco que contém tudo */
+        .timeline-content {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e1e4e8;
+            padding: 2rem;
+            /* MÁGICA AQUI: Usa flexbox para colocar texto e imagem lado a lado */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem; /* Espaço entre o texto e a imagem */
+        }
+
+        /* O container do texto (para garantir que ele ocupe o espaço necessário) */
+        .timeline-text {
+            flex: 1; /* Ocupa todo o espaço disponível */
+        }
+
+        /* Estilização dos textos internos */
+        .timeline-content h3 {
+            color: #1a1a2e;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-content .degree {
+            color: #e94560;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-content .year {
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: #f0f2f5;
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* O container da imagem (logo/badge) */
+        .timeline-image {
+            /* Tamanho fixo para garantir alinhamento */
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0; /* Impede que a imagem seja esmagada se o texto for longo */
+            background: #f0f2f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            text-align: center;
+            padding: 0.5rem;
+            border: 2px solid #1a1a2e;
+            font-size: 0.8rem;
+            /* Se for usar uma imagem real, descomente abaixo: */
+            /* background-image: url('caminho-da-sua-logo.jpg'); */
+            /* background-size: cover; */
+            /* background-position: center; */
+        }
+
+        /* Ajuste para telas pequenas (celular) */
+        @media (max-width: 768px) {
+            .timeline-content {
+                flex-direction: column-reverse; /* Coloca a imagem em cima do texto no celular */
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .timeline-image {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .project-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Oséias Caires</h1>
+                <p>Mechatronics Engineer</p>
+                <div>
+                    <span class="tech-badge">Robotics</span>
+                    <span class="tech-badge">Iot</span>
+                    <span class="tech-badge">Control Systems</span>
+                    <span class="tech-badge">Embedded Systems</span>
+                    <span class="tech-badge">AI & ML</span>
+                    <span class="tech-badge">Data Analyst</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                Replace with your professional photo<br>
+                <small style="margin-top: 1rem; opacity: 0.8;">Add: style="background-image: url('your-photo.jpg'); background-size: cover; background-position: center;"</small>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="perfil.jpg" alt="Foto de [Seu Nome]" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
+                </div>
+                <div class="about-text">
+                    <p>
+                        Passionate Mechatronics Engineer with expertise in designing, developing, and implementing 
+                        intelligent automated systems. Experienced in integrating mechanical, electrical, and software 
+                        components to create innovative solutions for complex engineering challenges.
+                    </p>
+                    <p>
+                        My work focuses on robotics, industrial automation, control systems, and embedded programming. 
+                        I thrive on bridging the gap between mechanical design and cutting-edge technology to build 
+                        systems that are efficient, reliable, and future-ready.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-text">
+                            <h3>FIMCA - Integrated College Aparicio Carvalho</h3>
+                            <div class="degree">Bachelor of Engineering in Mechatronics</div>
+                            <span class="year">2020 - 2025</span>
+                            <p>
+                                Focused on robotics, control systems, and automation. Completed capstone project on 
+                                autonomous mobile robotics. GPA: 3.8/4.0
+                            </p>
+                        </div>
+                        <div class="timeline-image">
+                            Add university logo
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-text">
+                            <h3>Federal University of Technology – Paraná</h3>
+                            <div class="degree">Postgraduate Certificate in IoT</div>
+                            <span class="year">2025 - 2027</span>
+                            <p>
+                                Specialized in electronic circuits, microcontrollers, and industrial automation. 
+                                Developed strong foundation in electrical engineering principles.
+                            </p>
+                        </div>
+                        <div class="timeline-image">
+                            Add school logo
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-text">
+                            <h3>CI Amazônia (Government Program for IC Design Training)</h3>
+                            <div class="degree">Advanced Professional Certificate in Microelectronics</div>
+                            <span class="year">2025 - 2026</span>
+                            <p>
+                                Completed advanced courses in ROS2, SLAM algorithms, and autonomous navigation. 
+                                Certified in industrial automation and PLC programming.
+                            </p>
+                        </div>
+                        <div class="timeline-image">
+                            Add certification badge
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>Autonomous Mobile Robot</h3>
+                        <p>
+                            Designed and built an autonomous navigation robot using ROS, computer vision, and LIDAR sensors. 
+                            Implemented SLAM algorithms for real-time mapping and path planning.
+                        </p>
+                        <span class="tech-badge">ROS</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">OpenCV</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>Industrial Robotic Arm Control</h3>
+                        <p>
+                            Developed a control system for a 6-DOF robotic arm with inverse kinematics, trajectory planning, 
+                            and real-time position control using PID controllers.
+                        </p>
+                        <span class="tech-badge">MATLAB</span>
+                        <span class="tech-badge">Arduino</span>
+                        <span class="tech-badge">CAD</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>Smart Home Automation System</h3>
+                        <p>
+                            Created an IoT-based home automation system with sensor integration, mobile app control, 
+                            and machine learning for predictive energy management.
+                        </p>
+                        <span class="tech-badge">IoT</span>
+                        <span class="tech-badge">Raspberry Pi</span>
+                        <span class="tech-badge">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>CNC Machine Design</h3>
+                        <p>
+                            Designed and fabricated a 3-axis CNC milling machine with custom electronics, stepper motor 
+                            control, and G-code interpretation software.
+                        </p>
+                        <span class="tech-badge">SolidWorks</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">PCB Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>Drone Flight Controller</h3>
+                        <p>
+                            Implemented a flight control system for a quadcopter with sensor fusion, attitude control, 
+                            and autonomous flight modes including GPS waypoint navigation.
+                        </p>
+                        <span class="tech-badge">C/C++</span>
+                        <span class="tech-badge">IMU</span>
+                        <span class="tech-badge">PID Control</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        Add project photo
+                    </div>
+                    <div class="project-content">
+                        <h3>Predictive Maintenance System</h3>
+                        <p>
+                            Developed a machine learning model for predictive maintenance of industrial equipment using 
+                            vibration analysis and thermal imaging data.
+                        </p>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">ML</span>
+                        <span class="tech-badge">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>💻 Programming</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>C/C++</li>
+                        <li>MATLAB/Simulink</li>
+                        <li>LabVIEW</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🤖 Robotics & Control</h3>
+                    <ul>
+                        <li>ROS/ROS2</li>
+                        <li>Control Systems</li>
+                        <li>Kinematics & Dynamics</li>
+                        <li>Computer Vision</li>
+                        <li>SLAM</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>⚡ Electronics</h3>
+                    <ul>
+                        <li>Arduino/ESP32</li>
+                        <li>Raspberry Pi</li>
+                        <li>PCB Design</li>
+                        <li>Sensors & Actuators</li>
+                        <li>Signal Processing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🔧 Mechanical Design</h3>
+                    <ul>
+                        <li>SolidWorks</li>
+                        <li>AutoCAD</li>
+                        <li>FEA Analysis</li>
+                        <li>3D Printing</li>
+                        <li>CNC Machining</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🧠 AI & Machine Learning</h3>
+                    <ul>
+                        <li>TensorFlow/PyTorch</li>
+                        <li>Neural Networks</li>
+                        <li>Computer Vision</li>
+                        <li>Data Analysis</li>
+                        <li>Predictive Modeling</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🛠️ Tools & Platforms</h3>
+                    <ul>
+                        <li>Git/GitHub</li>
+                        <li>Linux</li>
+                        <li>Docker</li>
+                        <li>IoT Platforms</li>
+                        <li>Simulation Tools</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-section">
+                <p>
+                    Interested in collaborating or have a project in mind? Let's connect!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com">📧 Email</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/yourusername" target="_blank">💻 GitHub</a>
+                </div>
+                <a href="mailto:your.email@example.com" class="btn">Contact Me</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
