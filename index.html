@@ -157,8 +157,8 @@
         /* CARTÕES: Fundo branco com sombra suave (Estilo Material Design) */
         .about-content, .project-card, .skill-card, .contact-section, .timeline-content {
             background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra elegante */
+            border-radius: 2px;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.08); /* Sombra elegante */
             border: 1px solid #e1e4e8; /* Borda sutil */
         }
 
@@ -173,7 +173,7 @@
         .about-image {
             width: 100%;
             height: 400px;
-            background: #e1e4e8;
+            /* background: #e1e4e8;  <- Se quiser, pode remover este fundo cinza também se sua foto já estiver carregando bem */
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -182,7 +182,11 @@
             font-size: 1rem;
             text-align: center;
             padding: 1rem;
-            border: 2px solid #1a1a2e;
+            /* A linha abaixo foi REMOVIDA para tirar a borda */
+            /* border: 2px solid #1a1a2e; */ 
+            
+            /* Adicionei isto para garantir que não tenha sombra parecendo borda */
+            box-shadow: none; 
         }
 
         .about-text p {
