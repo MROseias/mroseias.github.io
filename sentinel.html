@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome do Projeto | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#projects">All Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <a href="index.html#projects" class="back-btn">&larr; Back to Projects</a>
+
+        <header class="project-header">
+            <h1>Autonomous Mobile Robot</h1>
+            <p class="project-subtitle">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
+        </header>
+
+        <div class="specs-container">
+            <div class="spec-item">
+                <h4>Role</h4>
+                <p>Lead Engineer</p>
+            </div>
+            <div class="spec-item">
+                <h4>Date</h4>
+                <p>Aug 2024 - Dec 2024</p>
+            </div>
+            <div class="spec-item">
+                <h4>Tech Stack</h4>
+                <p>Python, C++, ROS2, Gazebo</p>
+            </div>
+            <div class="spec-item">
+                <h4>Hardware</h4>
+                <p>Raspberry Pi 4, LiDAR, Arduino</p>
+            </div>
+        </div>
+
+        <article class="project-article">
+            
+            <div class="video-wrapper full-width" style="margin-bottom: 3rem;">
+                <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <h2>The Challenge</h2>
+            <p>
+                Explain the problem you were trying to solve here. For example: "Traditional warehouse robots require expensive magnetic tracks. The goal was to create a cost-effective robot that navigates using natural features."
+            </p>
+
+            <h2>Technical Implementation</h2>
+            <p>
+                Here you describe the "Mechatronics" magic. Talk about the integration between the mechanical design and the software.
+            </p>
+            
+            <div class="media-grid">
+                <div class="media-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Circuit Diagram">
+                </div>
+                <div class="media-item">
+                    <img src="https://via.placeholder.com/600x400" alt="CAD Render">
+                </div>
+            </div>
+
+            <p>
+                The control loop was implemented using a PID controller on the Arduino, communicating with the Raspberry Pi via serial. The SLAM algorithm utilized was Gmapping for static mapping and AMCL for localization.
+            </p>
+
+            <h2>Results</h2>
+            <p>
+                The robot successfully navigated a 500sq ft environment, avoiding dynamic obstacles with a success rate of 95%.
+            </p>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="LINK_DO_GITHUB_DO_PROJETO" target="_blank" class="btn">View Source Code on GitHub</a>
+            </div>
+
+        </article>
+
+    </div>
+
+</body>
+</html>

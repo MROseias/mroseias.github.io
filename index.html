@@ -3,532 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechatronics Engineer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* --- RESET GERAL --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* VARIÁVEIS (Para facilitar ajustes futuros) */
-        :root {
-            --bg-dark: #050a14;      /* Fundo super escuro */
-            --accent: #00f2ff;       /* Azul Ciano Elétrico (A cor da tecnologia) */
-            --glass-bg: rgba(10, 25, 45, 0.7); /* Vidro azulado */
-            --text-light: #e2e8f0;
-            --text-dim: #94a3b8;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-light);
-            line-height: 1.6;
-
-            /* --- FUNDO MECATRÔNICO TECH GRID (CSS PURO) --- */
-            background-color: var(--bg-dark);
-            background-image: 
-                /* Camada 1: Um brilho central sutil */
-                radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05) 0%, transparent 60%),
-                /* Camada 2: Linhas horizontais finas (Grade) */
-                linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
-                /* Camada 3: Linhas verticais finas (Grade) */
-                linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
-            /* Define o tamanho dos quadrados da grade (30px x 30px) */
-            background-size: 100% 100%, 30px 30px, 30px 30px;
-            background-attachment: fixed; /* O fundo fica fixo ao rolar */
-            background-position: center;
-        }
-
-        /* --- NAVEGAÇÃO --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 10, 20, 0.9); /* Fundo quase preto */
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 242, 255, 0.2); /* Linha ciano */
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-transform: uppercase; /* Mais técnico */
-            letter-spacing: 1px;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.7); /* Brilho neon ao passar o mouse */
-        }
-
-        /* --- CONTAINER E HERO --- */
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 6rem 2rem 2rem;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            padding: 4rem 0;
-            margin-bottom: 4rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-            /* Efeito de texto brilhante futurista */
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5), 0 0 30px rgba(0, 242, 255, 0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: var(--text-dim);
-            margin-bottom: 2rem;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            /* Gradiente azulado tecnológico */
-            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1) 0%, rgba(10, 25, 45, 0.4) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            padding: 2rem;
-            /* Borda brilhante */
-            border: 1px solid rgba(0, 242, 255, 0.3);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        /* Adiciona um efeito de scanline na imagem hero */
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(transparent 0px, transparent 2px, rgba(0, 242, 255, 0.05) 3px);
-            pointer-events: none;
-        }
-
-
-        /* --- BADGES TECH --- */
-        .tech-badge {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            margin: 0.4rem;
-            background: rgba(0, 242, 255, 0.05);
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: var(--accent);
-            font-weight: 600;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tech-badge:hover {
-            background: var(--accent);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.6);
-        }
-
-        /* --- SEÇÕES E TÍTULOS --- */
-        section {
-            margin-bottom: 5rem;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            /* Linha de gradiente neon */
-            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-        }
-
-        /* --- ESTILO DOS CARTÕES (GLASSMORPHISM TECH) --- */
-        .about-content, .project-card, .skill-card, .contact-section, .timeline-content {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 242, 255, 0.15); /* Borda ciano sutil */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        /* Efeito hover nos cartões interativos */
-        .project-card:hover, .skill-card:hover, .contact-links a:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);
-        }
-
-
-        /* --- SOBRE (ABOUT) --- */
-        .about-content {
-            padding: 3rem;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 400px;
-            border-radius: 8px;
-            box-shadow: none;
-            border: 1px solid rgba(0, 242, 255, 0.2); /* Borda fina na foto */
-            background-size: cover;
-            background-position: center;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            border-left: 3px solid rgba(0, 242, 255, 0.3); /* Marcador lateral de texto */
-            padding-left: 1.5rem;
-        }
-
-        /* --- GRADE DE QUADRADOS --- */
-        .edu-grid {
-            display: grid;
-            /* Cria colunas automáticas. Mínimo 200px, Máximo o que der */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .edu-square {
-            /* Faz ser um quadrado perfeito (Altura = Largura) */
-            aspect-ratio: 1 / 1;
-            background: var(--glass-bg); /* Fundo de vidro */
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico */
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .edu-square:hover {
-            transform: scale(1.05) translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
-        }
-
-        .edu-square img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Logo fica inteira dentro do quadrado */
-            z-index: 1;
-            transition: transform 0.3s;
-        }
-
-        /* Efeito de texto "Click to View" aparecendo ao passar o mouse */
-        .edu-square .overlay-text {
-            position: absolute;
-            bottom: -50px; /* Começa escondido embaixo */
-            left: 0;
-            width: 100%;
-            background: var(--accent);
-            color: var(--bg-dark);
-            text-align: center;
-            padding: 0.5rem;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: bottom 0.3s;
-            z-index: 2;
-        }
-
-        .edu-square:hover .overlay-text {
-            bottom: 0; /* Sobe ao passar o mouse */
-        }
-
-        /* --- O POPUP (MODAL) --- */
-        .modal-overlay {
-            display: none; /* Escondido por padrão */
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); /* Fundo preto transparente */
-            backdrop-filter: blur(5px);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s;
-        }
-
-        .modal-content {
-            background: rgba(10, 25, 45, 0.95);
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 3rem;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            box-shadow: 0 0 50px rgba(0, 242, 255, 0.3);
-            text-align: left;
-            animation: slideUp 0.3s;
-        }
-
-        /* Botão Fechar (X) */
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            color: var(--text-dim);
-            font-size: 2rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .close-btn:hover { color: var(--accent); }
-
-        /* Texto dentro do Modal */
-        #modal-title {
-            color: var(--accent);
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-badge {
-            display: inline-block;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--accent);
-            padding: 0.2rem 0.8rem;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(0, 242, 255, 0.3);
-        }
-
-        #modal-degree {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        #modal-desc {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Animações simples */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(50px); } to { transform: translateY(0); } }
-
-        /* --- RESPONSIVIDADE (Celular) --- */
-        @media (max-width: 768px) {
-            .edu-card {
-                flex-direction: column; /* Empilha logo e texto */
-            }
-
-            .edu-logo-box {
-                width: 100%;
-                height: 120px;
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                padding: 1rem;
-            }
-
-            .edu-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        /* --- PROJETOS --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            /* Fundo placeholder tecnológico */
-            background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1) 0%, rgba(10, 25, 45, 0.8) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        /* Adiciona um ícone de "circuito" sutil no fundo dos projetos sem imagem */
-        .project-image::before {
-            content: '⚡';
-            font-size: 4rem;
-            opacity: 0.2;
-            color: var(--accent);
-        }
-
-
-        .project-content { padding: 2rem; }
-        .project-content h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        /* --- SKILLS --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            padding: 2rem;
-            border-left: 4px solid var(--accent);
-        }
-
-        .skill-card h3 {
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-card ul { list-style: none; }
-
-        .skill-card li {
-            padding: 0.7rem 0;
-            color: var(--text-light);
-            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .skill-card li::before {
-            content: '>'; /* Marcador estilo terminal */
-            position: absolute;
-            left: 0;
-            font-family: monospace;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* --- CONTATO --- */
-        .contact-section {
-            padding: 4rem;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: var(--accent);
-            text-decoration: none;
-            padding: 1rem 2rem;
-            background: rgba(0, 242, 255, 0.05);
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .contact-links a:hover {
-            background: var(--accent);
-            color: var(--bg-dark);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--accent);
-            color: var(--bg-dark);
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 700;
-            transition: all 0.4s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-        }
-
-        .btn:hover {
-            background: #ffffff;
-            box-shadow: 0 0 40px rgba(0, 242, 255, 0.8);
-            transform: scale(1.05);
-        }
-
-        /* --- MEDIA QUERIES (Celular) --- */
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; }
-            .about-content { grid-template-columns: 1fr; }
-            
-            .timeline-content {
-                flex-direction: column-reverse;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .timeline-image { margin-bottom: 1rem; }
-            .timeline-text { width: 100%; }
-            h1 { font-size: 2.5rem; }
-        }
-    </style>
+    <title>Oseias Caires Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <nav>
@@ -566,7 +42,7 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="perfil.jpeg"  style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
+                    <img src="assets/imgs/perfil.jpeg"  style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
                 </div>
                 <div class="about-text">
                     <p>
@@ -594,7 +70,7 @@
                     data-year="2020 - 2025" 
                     data-degree="Bachelor of Mechatronics Engineering"
                     data-desc="Mechatronics Engineer graduated from FIMCA University Center, with a technical profile focused on the development of Embedded Systems and hardware-software integration. I have a solid background in Electronics (Analog, Digital and Power) and Computer Architecture, applied to device control. Skilled in implementing Artificial Intelligence and Neural Network algorithms for Robotics and automation solutions, focusing on efficient programming and interfacing of complex systems.">
-                    <img src="fimca.png" alt="University Logo">
+                    <img src="assets/imgs/fimca.png" alt="University Logo">
                     <div class="overlay-text">Click to View</div>
                 </div>
                 <div class="edu-square" 
@@ -605,7 +81,7 @@
                     data-degree="Post Graduate - Iot"
                     data-desc="Internet of Things (IoT) specialist focused on developing complete solutions, from programming microcontroller devices to integration with Cloud Computing and Big Data. Expertise in wireless network architectures and modern interoperability protocols, ensuring robust connectivity and data security. Skilled in applying Artificial Intelligence (AIoT) and analytics to optimize automation and create intelligent and predictive systems.">
                     
-                    <img src="utfpr.png" alt="Tech School Logo">
+                    <img src="assets/imgs/utfpr.png" alt="Tech School Logo">
                     
                     <div class="overlay-text" style="color: #000; font-weight: 800;">Click to View</div>
                 </div>
@@ -616,7 +92,7 @@
                     data-year="2025-2026" 
                     data-degree="Professional Certification in Microelectronic"
                     data-desc="Fundamentals of Digital Logic and CMOS Technology, Introduction to VLSI (Very Large Scale Integration), ASIC (Application Specific Integrated Circuit) Design Flow, and the use of Linux in electronic engineering environments.">
-                    <img src="ci_amazonia.png" alt="Certification Logo">
+                    <img src="assets/imgs/ci_amazonia.png" alt="Certification Logo">
                     <div class="overlay-text">Click to View</div>
                 </div>
 
@@ -637,18 +113,18 @@
             <h2>Featured Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
+                    <div class="project-image com-imagem">
+                        <img src="assets/imgs/sentinela_apresentacao.jpeg">
                     </div>
                     <div class="project-content">
-                        <h3>Autonomous Mobile Robot</h3>
+                        <h3>Sentinel</h3>
+                        <a href="sentinel.html" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; margin-top: 1rem;">View Details</a>
                         <p>
-                            Designed and built an autonomous navigation robot using ROS, computer vision, and LIDAR sensors. 
-                            Implemented SLAM algorithms for real-time mapping and path planning.
+                            Sentinela is a program that enables firefighters in Rondônia to combat fires based on satellite data in a clear and visual way, where through a situation room and alerts they have all the information on fire outbreaks.
                         </p>
-                        <span class="tech-badge">ROS</span>
+                        <span class="tech-badge">GeoProcessing</span>
                         <span class="tech-badge">Python</span>
-                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">Data Engineering</span>
                     </div>
                 </div>
 
