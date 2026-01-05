@@ -519,3 +519,74 @@ h2::after {
     .media-grid { grid-template-columns: 1fr; }
     .project-header h1 { font-size: 2rem; }
 }
+/* --- ESTILO DAS BARRAS DE SKILLS --- */
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha divisória sutil */
+    /* Removemos o estilo antigo de 'marcador' (>) */
+}
+/* Remove o ::before antigo que colocava o simbolo '>' */
+.skill-card li::before {
+    content: none;
+    padding: 0;
+}
+/* Reset do padding antigo */
+.skill-card li {
+    padding-left: 0;
+}
+
+.skill-name {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* O container das 5 barrinhas */
+.skill-bar {
+    display: flex;
+    gap: 4px; /* Espaço entre os blocos */
+}
+
+/* Cada bloquinho individual (Inativo por padrão) */
+.skill-bar span {
+    display: block;
+    width: 12px;  /* Largura do bloco */
+    height: 8px;  /* Altura do bloco */
+    background: rgba(255, 255, 255, 0.1); /* Cor cinza apagado */
+    transform: skewX(-20deg); /* Inclinação para visual Cyberpunk/Velocidade */
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+/* O bloquinho quando está ATIVO (filled) */
+.skill-bar span.filled {
+    background: var(--accent); /* Azul Ciano Neon */
+    box-shadow: 0 0 8px var(--accent); /* Brilho Neon */
+}
+
+/* Efeito ao passar o mouse no card: os blocos brilham mais */
+.skill-card:hover .skill-bar span.filled {
+    background: #fff; /* Fica branco brilhante */
+    box-shadow: 0 0 12px var(--accent); /* Brilho azul intenso */
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 400px) {
+    .skill-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    .skill-bar {
+        align-self: flex-start;
+    }
+}
