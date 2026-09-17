@@ -9,6 +9,7 @@
   --text-muted: #8b949e;
   --accent-blue: #38bdf8;
   --white: #ffffff;
+  --max-width: 1100px;
 }
 
 * {
@@ -26,6 +27,15 @@ body {
   color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Limita tamanho de imagens para não estourarem o layout */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ==========================================================================
@@ -33,20 +43,23 @@ body {
    ========================================================================== */
 header {
   width: 100%;
-  padding: 20px 40px;
-  background-color: rgba(11, 15, 25, 0.9);
+  padding: 20px;
+  background-color: rgba(11, 15, 25, 0.95);
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   list-style: none;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 nav a {
@@ -62,35 +75,38 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (COM TRILHAS DE PCB EMBUTIDAS)
+   3. HERO SECTION (COM TRILHAS DE PCB)
    ========================================================================== */
-.hero-container {
+.hero-container, 
+.hero, 
+#home {
   position: relative;
   width: 100%;
-  padding: 80px 40px;
+  padding: 80px 20px;
   background-color: var(--bg-dark);
   border-bottom: 1px solid var(--border-color);
   
-  /* Background SVG de trilhas embutido via Data-URI */
+  /* Background SVG de trilhas embutido */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.22;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.35%7D.p%7Bfill:%2338bdf8;fill-opacity:0.3%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='80' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='160' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='160' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='180' cy='90' r='3.5'/%3E%3Ccircle class='v' cx='60' cy='80' r='3.5'/%3E%3Ccircle class='p' cx='60' cy='80' r='1.5'/%3E%3Ccircle class='v' cx='140' cy='170' r='3.5'/%3E%3C/svg%3E");
   background-size: 240px 240px;
   background-repeat: repeat;
   overflow: hidden;
 }
 
-/* Suavizador do fundo para focar a leitura no texto */
-.hero-container::before {
+.hero-container::before,
+.hero::before,
+#home::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at left center, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.9) 100%);
+  background: radial-gradient(circle at left center, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.95) 100%);
   pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -99,7 +115,6 @@ nav a:hover {
   font-weight: 700;
   color: var(--white);
   margin-bottom: 6px;
-  letter-spacing: -0.5px;
 }
 
 .typing-text {
@@ -112,7 +127,6 @@ nav a:hover {
 .cursor {
   animation: blink 1s infinite;
   color: var(--accent-blue);
-  margin-left: 2px;
 }
 
 @keyframes blink {
@@ -121,12 +135,17 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. SEÇÕES E CONTEÚDO (ABOUT, EDUCATION, EXPERIENCE, ETC.)
+   4. ESTRUTURA DAS SEÇÕES (CENTRALIZAÇÃO GERENCIAL)
    ========================================================================== */
+main {
+  width: 100%;
+}
+
 section {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 60px 20px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 h2 {
@@ -134,27 +153,40 @@ h2 {
   font-weight: 600;
   color: var(--white);
   margin-bottom: 24px;
-  position: relative;
 }
 
 p {
   color: var(--text-main);
   font-size: 1rem;
   line-height: 1.7;
+  margin-bottom: 16px;
 }
 
-/* Layout responsivo para telas menores */
-@media (max-width: 768px) {
-  header {
-    padding: 15px 20px;
-  }
+/* Controle da foto no "About Me" */
+#about img, 
+.about-img {
+  max-width: 320px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
 
+/* Ajustes para cards de Educação e Experiência */
+.card, .education-item, .experience-item, .project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
   nav ul {
     gap: 15px;
-  }
-
-  .hero-container {
-    padding: 60px 20px;
+    flex-wrap: wrap;
   }
 
   .hero-content h1 {
