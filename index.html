@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oseias Caires | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=11">
+    <link rel="stylesheet" href="assets/css/style.css?v=12">
 </head>
 <body>
 
@@ -14,6 +14,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
         </ul>
@@ -41,43 +42,78 @@
             </div>
         </section>
 
-        <!-- Educação com Cards e Logos -->
+        <!-- Educação (Cards Banner) -->
         <section id="education" class="gh-section" style="margin-top: 3rem;">
-            <h2 class="gh-heading">Education & Residency</h2>
-            <p style="color: var(--gh-muted); font-size: 0.9rem; margin-bottom: 1.2rem;">Clique na instituição para ver os detalhes:</p>
+            <h2 class="gh-heading">Education & Academic Background</h2>
             
-            <div class="education-grid">
+            <div class="brand-grid">
                 
                 <!-- CI Amazônia -->
-                <div class="edu-card" onclick="openModal('modal-ci')">
-                    <div class="logo-wrapper">
-                        <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="edu-logo">
-                    </div>
-                    <div class="edu-info">
+                <div class="brand-card" onclick="openModal('modal-ci')">
+                    <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="card-logo">
+                    <div class="card-overlay">
                         <h3>CI Amazônia</h3>
-                        <p>Residência em Microeletrônica</p>
+                        <p>Residência em Microeletrônica & RTL Synthesis</p>
+                        <span class="explore-btn">Explore</span>
                     </div>
                 </div>
 
                 <!-- UTFPR -->
-                <div class="edu-card" onclick="openModal('modal-utfpr')">
-                    <div class="logo-wrapper">
-                        <img src="assets/imgs/utfpr.png" alt="UTFPR" class="edu-logo">
-                    </div>
-                    <div class="edu-info">
+                <div class="brand-card" onclick="openModal('modal-utfpr')">
+                    <img src="assets/imgs/utfpr.png" alt="UTFPR" class="card-logo">
+                    <div class="card-overlay">
                         <h3>UTFPR</h3>
-                        <p>Pós-Graduação & Técnico</p>
+                        <p>Pós-Graduação em IoT & Técnico em Eletrônica</p>
+                        <span class="explore-btn">Explore</span>
                     </div>
                 </div>
 
                 <!-- FIMCA -->
-                <div class="edu-card" onclick="openModal('modal-fimca')">
-                    <div class="logo-wrapper">
-                        <img src="assets/imgs/fimca.png" alt="FIMCA" class="edu-logo">
-                    </div>
-                    <div class="edu-info">
+                <div class="brand-card" onclick="openModal('modal-fimca')">
+                    <img src="assets/imgs/fimca.png" alt="FIMCA" class="card-logo">
+                    <div class="card-overlay">
                         <h3>FIMCA</h3>
-                        <p>Formação Acadêmica</p>
+                        <p>Formação Acadêmica & Graduação</p>
+                        <span class="explore-btn">Explore</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experiência Profissional (Cards Banner) -->
+        <section id="experience" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">Work Experience</h2>
+            
+            <div class="brand-grid">
+                
+                <!-- CI Amazônia - Residência -->
+                <div class="brand-card" onclick="openModal('modal-exp-ci')">
+                    <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="card-logo">
+                    <div class="card-overlay">
+                        <h3>CI Amazônia</h3>
+                        <p>Residente de Hardware & RTL Synthesis</p>
+                        <span class="explore-btn">Explore</span>
+                    </div>
+                </div>
+
+                <!-- SETIC RO / Projetos -->
+                <div class="brand-card" onclick="openModal('modal-exp-setic')">
+                    <div class="text-logo">SETIC / Sentinela</div>
+                    <div class="card-overlay">
+                        <h3>SETIC - RO</h3>
+                        <p>Desenvolvedor Principal & Engenheiro de Dados</p>
+                        <span class="explore-btn">Explore</span>
+                    </div>
+                </div>
+
+                <!-- Trainee / Embarcados -->
+                <div class="brand-card" onclick="openModal('modal-exp-trainee')">
+                    <div class="text-logo">Embedded Systems</div>
+                    <div class="card-overlay">
+                        <h3>Trainee Engineer</h3>
+                        <p>Sistemas Embarcados & Projetos de Hardware</p>
+                        <span class="explore-btn">Explore</span>
                     </div>
                 </div>
 
@@ -164,7 +200,7 @@
 
     </div>
 
-    <!-- Modais -->
+    <!-- Modais - Educação -->
     <div id="modal-ci" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('modal-ci')">&times;</span>
@@ -200,6 +236,38 @@
             </div>
             <p><strong>Instituição:</strong> Centro Universitário Aparício Carvalho (FIMCA)</p>
             <p style="margin-top: 1rem; color: var(--gh-text);">Detalhes sobre a trajetória acadêmica, cursos e projetos realizados na instituição.</p>
+        </div>
+    </div>
+
+    <!-- Modais - Experiência Profissional -->
+    <div id="modal-exp-ci" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-exp-ci')">&times;</span>
+            <div class="modal-header">
+                <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="modal-logo">
+                <h2>CI Amazônia - Residência</h2>
+            </div>
+            <p><strong>Atuação:</strong> Pesquisa e Desenvolvimento em Microeletrônica</p>
+            <p><strong>Foco:</strong> Projeto de Circuitos Digitais & RTL Synthesis</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Desenvolvimento de hardware em SystemVerilog/Verilog, otimização de fluxo de síntese lógica e testes de validação.</p>
+        </div>
+    </div>
+
+    <div id="modal-exp-setic" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-exp-setic')">&times;</span>
+            <h2>SETIC - RO & Projeto Sentinela</h2>
+            <p><strong>Atuação:</strong> Desenvolvedor Principal / Engenheiro de Dados</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Liderança no desenvolvimento do sistema Sentinela, arquitetura de pipeline de dados e automação de fluxos analíticos.</p>
+        </div>
+    </div>
+
+    <div id="modal-exp-trainee" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-exp-trainee')">&times;</span>
+            <h2>Trainee em Sistemas Embarcados</h2>
+            <p><strong>Atuação:</strong> Desenvolvimento de Firmware & Hardware</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Atuação em prototipagem eletrônica, layout de PCBs em KiCad, suporte a firmware em C/C++ e testes em bancada.</p>
         </div>
     </div>
 
