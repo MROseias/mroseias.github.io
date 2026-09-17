@@ -8,9 +8,12 @@
 </head>
 <body>
 
+    <!-- Navegação -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
         </ul>
@@ -18,24 +21,56 @@
 
     <div class="container" id="home">
         
-        <!-- Cabeçalho Principal (Home) -->
+        <!-- Cabeçalho Principal -->
         <header class="project-header" style="margin-top: 2rem;">
             <h1>Oseias Caires</h1>
             <p class="project-subtitle">Embedded Systems Developer & Hardware Engineer</p>
         </header>
 
-        <!-- Seção de Projetos -->
-        <section id="projects" class="gh-section" style="margin-top: 3rem;">
-            <h2 class="gh-heading">Featured Projects</h2>
-            <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
-                <h3 style="margin-bottom: 0.5rem;">
-                    <a href="sentinel.html" style="color: var(--gh-link, #58a6ff); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
-                </h3>
-                <p style="color: var(--gh-text, #c9d1d9);">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
+        <!-- Apresentação (About) -->
+        <section id="about" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">About Me</h2>
+            <div style="color: var(--gh-text, #c9d1d9); line-height: 1.7;">
+                <p>Hello! I am an Embedded Systems Developer and Hardware Engineer focused on microelectronics and digital logic design. I am currently participating in the CI Amazônia residency, specifically working on the RTL Synthesis track.</p>
+                <p style="margin-top: 1rem;">My background includes strong experience in data engineering from my time at SETIC de RO, where I served as the lead developer for the Sentinela project. My current focus is on building robust architectures, exploring RISC-V, and designing custom PCBs.</p>
             </div>
         </section>
 
-        <!-- Nova Seção de Habilidades com Ícones -->
+        <!-- Educação -->
+        <section id="education" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">Education</h2>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Pós-graduação -->
+                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
+                    <h3 style="margin-bottom: 0.2rem; color: #ffffff; font-size: 1.1rem;">Postgraduate Specialization in Internet of Things (IoT)</h3>
+                    <p style="color: var(--gh-muted, #8b949e); font-size: 0.9rem; margin-bottom: 0.5rem;">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+                </div>
+                
+                <!-- Técnico -->
+                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
+                    <h3 style="margin-bottom: 0.2rem; color: #ffffff; font-size: 1.1rem;">Technical Diploma in Electronics</h3>
+                    <p style="color: var(--gh-muted, #8b949e); font-size: 0.9rem; margin-bottom: 0.5rem;">Universidade Tecnológica Federal do Paraná (UTFPR) • 2015 - 2017</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção de Projetos -->
+        <section id="projects" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">Featured Projects</h2>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- Projeto Sentinel -->
+                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
+                    <h3 style="margin-bottom: 0.5rem;">
+                        <a href="sentinel.html" style="color: var(--gh-link, #58a6ff); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
+                    </h3>
+                    <p style="color: var(--gh-text, #c9d1d9); font-size: 0.95rem;">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Habilidades com Ícones -->
         <section id="skills" class="gh-section" style="margin-top: 3rem;">
             <h2 class="gh-heading">Technical Skills</h2>
             
@@ -63,21 +98,22 @@
                     </div>
                 </div>
 
-                <!-- Robotics & Hardware -->
+                <!-- Hardware & Systems -->
                 <div class="skill-category-gh">
                     <h3>Hardware & Systems</h3>
                     <div class="icon-grid">
                         <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="Arduino">
-                            <span>Arduino</span>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
+                            <span>Linux</span>
                         </div>
+                        <!-- Usando ícones genéricos do Devicon para hardware onde aplicável -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi">
                             <span>Raspberry</span>
                         </div>
                         <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
-                            <span>Linux</span>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="Arduino">
+                            <span>Arduino</span>
                         </div>
                     </div>
                 </div>
@@ -105,7 +141,7 @@
 
     </div>
 
-    <!-- Novo Rodapé -->
+    <!-- Rodapé -->
     <footer class="gh-footer">
         <div class="social-icons">
             <a href="https://github.com/MROseias" target="_blank" title="GitHub">
