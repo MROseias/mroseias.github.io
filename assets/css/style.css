@@ -75,10 +75,10 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
-/* --- FOTO DE APRESENTAÇÃO E ABOUT (EXPANDIDA) --- */
+/* --- FOTO DE APRESENTAÇÃO E ABOUT (400PX Destaque Max) --- */
 .about-container {
     display: flex;
-    gap: 3rem; /* Espaçamento generoso entre a foto e o texto */
+    gap: 3.5rem; /* Aumentado para equilibrar com a foto maior */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -88,28 +88,42 @@ h1, h2, h3, h4 {
 }
 
 .featured-photo {
-    width: 320px;  /* Aumentado de 260px para 320px */
-    height: 320px; /* Mantém a proporção perfeita */
+    width: 400px;  /* Aumentado para 400px */
+    height: 400px; /* Mantém a proporção perfeita */
     object-fit: cover;
     object-position: center;
-    border-radius: 16px;
+    border-radius: 20px;
     border: 1px solid var(--gh-border);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7); /* Sombra mais marcada */
     background-color: var(--gh-card-bg);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .featured-photo:hover {
-    transform: scale(1.02); /* Leve zoom ao passar o mouse */
+    transform: scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
 }
 
 .about-text {
     flex: 1;
-    min-width: 280px;
+    min-width: 300px;
     color: var(--gh-text);
-    line-height: 1.75;
+    line-height: 1.8;
 }
 
+/* Ajuste automático para tablets e celulares */
+@media (max-width: 900px) {
+    .about-container {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .featured-photo {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+    }
+}
 /* Ajuste automático para telas menores/smartphones */
 @media (max-width: 768px) {
     .about-container {
