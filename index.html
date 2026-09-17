@@ -4,399 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oseias Caires | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=14">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navegação -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-        </ul>
-    </nav>
+    <!-- ==================== NAVBAR ==================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container" id="home">
-        
-        <!-- Cabeçalho Principal Estilo Hero PCB / Hardware -->
-        <header class="project-header pcb-hero">
-            <!-- Badge estilo Chip / LED Status -->
-            <div class="hero-chip-badge">
-                <span class="status-dot"></span> Hardware & Microelectronics
+    <main>
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Oseias Caires</h1>
+                <p class="typing-text">Mechatronics Engineer<span class="cursor">|</span></p>
             </div>
-            
-            <h1>Oseias Caires</h1>
-            
-            <!-- Efeito Digitação -->
-            <p class="project-subtitle">
-                <span id="typing-text"></span><span class="typing-cursor">|</span>
-            </p>
+        </section>
 
-            <!-- Tags rápidas de contexto -->
-            <div class="hero-tags">
-                <span class="hero-tag">📍 Porto Velho, RO</span>
-                <span class="hero-tag">🔬 CI Amazônia (RTL Synthesis)</span>
-                <span class="hero-tag">⚡ SystemVerilog & KiCad</span>
+        <!-- ==================== ABOUT ME ==================== -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="assets/imgs/profile.jpg" alt="Oseias Caires">
+                <p>
+                    Atuo no desenvolvimento de sistemas embarcados e projeto de hardware, combinando sólida formação mecânica e eletrônica com foco em lógica digital.
+                </p>
+                <p>
+                    Atualmente na residência em microeletrônica no CI Amazônia na trilha de RTL Synthesis, sou aluno de pós-graduação em IoT na UTFPR, com experiência prévia em engenharia de dados e atuando em projetos autorais de arquitetura de processadores RISC-V e prototipagem de PCBs.
+                </p>
             </div>
-        </header>
+        </section>
 
-        <!-- Apresentação (About + Foto de Destaque à Esquerda) -->
-        <section id="about" class="gh-section">
-            <h2 class="gh-heading">About Me</h2>
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="assets/imgs/perfil.jpeg" alt="Oseias Caires" class="featured-photo">
+        <!-- ==================== EDUCATION ==================== -->
+        <section id="education">
+            <h2>Education & Academic Background</h2>
+            <div class="grid education-grid">
+                <div class="education-item">
+                    <img src="assets/imgs/ci-amazoniam.png" alt="CI Amazônia">
+                    <h3>CI Amazônia</h3>
+                    <p><strong>Residência em Microeletrônica:</strong> Trilha RTL Synthesis</p>
+                    <p>Residência técnica focada em design e síntese de circuitos integrados.</p>
                 </div>
-                <div class="about-text">
-                    <p>Olá! Sou desenvolvedor de sistemas embarcados e engenheiro de hardware com foco em microeletrônica, projeto de PCB e lógica digital.</p>
-                    <p style="margin-top: 1rem;">Atualmente participo da Residência em Microeletrônica do <strong>CI Amazônia</strong> na trilha de <em>RTL Synthesis</em>. Possuo formação técnica e pós-graduação pela UTFPR, além de experiência prévia como desenvolvedor principal de projetos de engenharia de dados e robótica móvel.</p>
+                <div class="education-item">
+                    <img src="assets/imgs/utfpr.png" alt="UTFPR">
+                    <h3>UTFPR</h3>
+                    <p><strong>Pós-graduação:</strong> Internet of Things (IoT)</p>
+                    <p>Especialização voltada à integração de sistemas embarcados e conectividade.</p>
+                </div>
+                <div class="education-item">
+                    <img src="assets/imgs/fimca.png" alt="FIMCA">
+                    <h3>FIMCA</h3>
+                    <p><strong>Graduação:</strong> Engenharia Mecatrônica</p>
+                    <p>Base sólida em automação, mecânica e sistemas de controle eletrônico.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Educação (Cards Banner) -->
-        <section id="education" class="gh-section">
-            <h2 class="gh-heading">Education & Academic Background</h2>
-            
-            <div class="brand-grid">
-                <!-- CI Amazônia -->
-                <div class="brand-card" onclick="openModal('modal-ci')">
-                    <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="card-logo">
-                    <div class="card-overlay">
-                        <h3>CI Amazônia</h3>
-                        <p>Residência em Microeletrônica & RTL Synthesis</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
+        <!-- ==================== EXPERIENCE ==================== -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="grid">
+                <div class="experience-item">
+                    <h3>CI Amazônia — Residente RTL Synthesis</h3>
+                    <p>Atuação em projetos práticos de design e verificação de hardware utilizando SystemVerilog.</p>
                 </div>
-
-                <!-- UTFPR -->
-                <div class="brand-card" onclick="openModal('modal-utfpr')">
-                    <img src="assets/imgs/utfpr.png" alt="UTFPR" class="card-logo">
-                    <div class="card-overlay">
-                        <h3>UTFPR</h3>
-                        <p>Pós-Graduação em IoT & Técnico em Eletrônica</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
-                </div>
-
-                <!-- FIMCA -->
-                <div class="brand-card" onclick="openModal('modal-fimca')">
-                    <img src="assets/imgs/fimca.png" alt="FIMCA" class="card-logo">
-                    <div class="card-overlay">
-                        <h3>FIMCA</h3>
-                        <p>Formação Acadêmica & Graduação</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
+                <div class="experience-item">
+                    <h3>SETIC de RO — Engenharia de Dados</h3>
+                    <p>Desenvolvimento e sustentação de pipelines de dados, atuando como principal desenvolvedor do projeto Sentinela.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Experiência Profissional (Cards Banner) -->
-        <section id="experience" class="gh-section">
-            <h2 class="gh-heading">Work Experience</h2>
-            
-            <div class="brand-grid">
-                <!-- CI Amazônia - Residência -->
-                <div class="brand-card" onclick="openModal('modal-exp-ci')">
-                    <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="card-logo">
-                    <div class="card-overlay">
-                        <h3>CI Amazônia</h3>
-                        <p>Residente de Hardware & RTL Synthesis</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
-                </div>
-
-                <!-- SETIC RO / Sentinela -->
-                <div class="brand-card" onclick="openModal('modal-exp-setic')">
-                    <div class="text-logo">SETIC / Sentinela</div>
-                    <div class="card-overlay">
-                        <h3>SETIC - RO</h3>
-                        <p>Desenvolvedor Principal & Engenheiro de Dados</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
-                </div>
-
-                <!-- Trainee / Embarcados -->
-                <div class="brand-card" onclick="openModal('modal-exp-trainee')">
-                    <div class="text-logo">Embedded Systems</div>
-                    <div class="card-overlay">
-                        <h3>Trainee Engineer</h3>
-                        <p>Sistemas Embarcados & Projetos de Hardware</p>
-                        <span class="explore-btn">Explore</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projetos -->
-        <section id="projects" class="gh-section">
-            <h2 class="gh-heading">Featured Projects</h2>
-            
-            <div class="project-grid">
-                <!-- Project 1: Sentinela -->
+        <!-- ==================== PROJECTS ==================== -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="assets/imgs/sentinela_apresentacao.jpeg" alt="Sentinela Project">
-                        <span class="project-badge" style="background: #1f6beb;">Data Eng</span>
-                    </div>
-                    <div class="project-body">
-                        <div>
-                            <h3 class="project-title">Sentinela - Data & Monitoring Platform</h3>
-                            <p class="project-tech">Python, Data Engineering, Dashboard, GIS</p>
-                        </div>
-                        <a href="sentinel.html" class="project-btn">View Project</a>
-                    </div>
+                    <h3>32-bit RISC-V Processor Core</h3>
+                    <p>Desenvolvimento de um núcleo de processador proprietário em SystemVerilog focado na competição Champion Chip eXperience.</p>
                 </div>
-
-                <!-- Project 2: RISC-V Core -->
                 <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="RISC-V Processor Core">
-                        <span class="project-badge" style="background: #238636;">RISC-V</span>
-                    </div>
-                    <div class="project-body">
-                        <div>
-                            <h3 class="project-title">32-bit RISC-V Processor Core</h3>
-                            <p class="project-tech">SystemVerilog, Verilator, Digital Logic</p>
-                        </div>
-                        <a href="#" class="project-btn">View Project</a>
-                    </div>
+                    <h3>Projeto Sentinela</h3>
+                    <p>Robô de navegação autônoma baseado em ROS (Robot Operating System) para mapeamento e sensoriamento.</p>
                 </div>
-
-                <!-- Project 3: Custom PCB -->
                 <div class="project-card">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" alt="PQDB Board">
-                        <span class="project-badge" style="background: #8957e5;">KiCad</span>
-                    </div>
-                    <div class="project-body">
-                        <div>
-                            <h3 class="project-title">PQDB Power Quality Board</h3>
-                            <p class="project-tech">KiCad, Hardware Design, Embedded Systems</p>
-                        </div>
-                        <a href="#" class="project-btn">View Project</a>
-                    </div>
+                    <h3>Placa PQDB (KiCad)</h3>
+                    <p>Design de circuitos impressos customizados utilizando KiCad para aplicações em hardware embarcado.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Technical Skills -->
-        <section id="skills" class="gh-section">
-            <h2 class="gh-heading">Technical Skills</h2>
-            
-            <div class="skills-grid-gh">
-                <div class="skill-category-gh">
-                    <h3>Programming</h3>
-                    <div class="icon-grid">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C">
-                            <span>C</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++">
-                            <span>C++</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust">
-                            <span>Rust</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category-gh">
-                    <h3>Hardware & Systems</h3>
-                    <div class="icon-grid">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi">
-                            <span>Raspberry</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="Arduino">
-                            <span>Arduino</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category-gh">
-                    <h3>Tools</h3>
-                    <div class="icon-grid">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
-                            <span>Docker</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
-                            <span>GitHub</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- ==================== SKILLS ==================== -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="card">
+                <p><strong>Hardware & Microeletrônica:</strong> SystemVerilog, Verilator, RTL Synthesis, KiCad, FPGA, RISC-V.</p>
+                <p><strong>Software & Sistemas:</strong> C/C++, Python, Linux, Docker, Git, VSCodium.</p>
+                <p><strong>Engenharia:</strong> Sistemas Embarcados, Automação, Engenharia de Dados, ROS.</p>
             </div>
         </section>
-
-    </div>
-
-    <!-- Modais - Educação -->
-    <div id="modal-ci" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-ci')">&times;</span>
-            <div class="modal-header">
-                <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="modal-logo">
-                <h2>CI Amazônia</h2>
-            </div>
-            <p><strong>Programa:</strong> Residência em Microeletrônica</p>
-            <p><strong>Trilha:</strong> RTL Synthesis</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Capacitação avançada em síntese lógica digital, projeto de circuitos integrados e arquiteturas de hardware focadas no ecossistema de semicondutores.</p>
-        </div>
-    </div>
-
-    <div id="modal-utfpr" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-utfpr')">&times;</span>
-            <div class="modal-header">
-                <img src="assets/imgs/utfpr.png" alt="UTFPR" class="modal-logo">
-                <h2>UTFPR</h2>
-            </div>
-            <p><strong>Pós-Graduação:</strong> Especialização em Internet das Coisas (IoT)</p>
-            <p><strong>Técnico:</strong> Técnico em Eletrônica (2015 - 2017)</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Formação técnica em eletrônica analógica e digital, circuitos integrados, microcontroladores e sistemas aplicados a sistemas embarcados e IoT.</p>
-        </div>
-    </div>
-
-    <div id="modal-fimca" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-fimca')">&times;</span>
-            <div class="modal-header">
-                <img src="assets/imgs/fimca.png" alt="FIMCA" class="modal-logo">
-                <h2>FIMCA</h2>
-            </div>
-            <p><strong>Instituição:</strong> Centro Universitário Aparício Carvalho (FIMCA)</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Detalhes sobre a trajetória acadêmica, cursos e projetos realizados na instituição.</p>
-        </div>
-    </div>
-
-    <!-- Modais - Experiência Profissional -->
-    <div id="modal-exp-ci" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-exp-ci')">&times;</span>
-            <div class="modal-header">
-                <img src="assets/imgs/ci_amazonia.png" alt="CI Amazônia" class="modal-logo">
-                <h2>CI Amazônia - Residência</h2>
-            </div>
-            <p><strong>Atuação:</strong> Pesquisa e Desenvolvimento em Microeletrônica</p>
-            <p><strong>Foco:</strong> Projeto de Circuitos Digitais & RTL Synthesis</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Desenvolvimento de hardware em SystemVerilog/Verilog, otimização de fluxo de síntese lógica e testes de validação.</p>
-        </div>
-    </div>
-
-    <div id="modal-exp-setic" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-exp-setic')">&times;</span>
-            <h2>SETIC - RO & Projeto Sentinela</h2>
-            <p><strong>Atuação:</strong> Desenvolvedor Principal / Engenheiro de Dados</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Liderança no desenvolvimento do sistema Sentinela, arquitetura de pipeline de dados e automação de fluxos analíticos.</p>
-        </div>
-    </div>
-
-    <div id="modal-exp-trainee" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('modal-exp-trainee')">&times;</span>
-            <h2>Trainee em Sistemas Embarcados</h2>
-            <p><strong>Atuação:</strong> Desenvolvimento de Firmware & Hardware</p>
-            <p style="margin-top: 1rem; color: var(--gh-text);">Atuação em prototipagem eletrônica, layout de PCBs em KiCad, suporte a firmware em C/C++ e testes em bancada.</p>
-        </div>
-    </div>
-
-    <!-- Rodapé Centralizado -->
-    <footer class="gh-footer">
-        <div class="social-icons">
-            <a href="https://github.com/MROseias" target="_blank" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
-            </a>
-            <a href="#" target="_blank" title="Google Scholar">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
-            </a>
-            <a href="#" target="_blank" title="ORCID">
-                <img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" alt="ORCID">
-            </a>
-            <a href="#" target="_blank" title="LinkedIn">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-            </a>
-        </div>
-        <p class="made-by">Made by 🦆 Oseias Caires</p>
-    </footer>
-
-    <!-- Scripts do Modal e Efeito Digitação -->
-    <script>
-        // Modal Control
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-
-        // Typewriter Animation
-        const phrases = [
-            "Mechatronics Engineer",
-            "Embedded Systems & IoT",
-            "Microelectronics (ASIC / SystemVerilog)",
-            "Hardware & PCB Engineer",
-            "Data Engineer"
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingText = document.getElementById("typing-text");
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 35 : 75;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2200; // Pausa ao terminar de digitar
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 400; // Pausa antes da próxima palavra
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        document.addEventListener("DOMContentLoaded", type);
-    </script>
+    </main>
 
 </body>
 </html>
