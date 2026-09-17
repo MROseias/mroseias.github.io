@@ -1,214 +1,504 @@
-/* ==========================================================================
-   1. VARIÁVEIS E RESET GLOBAL (GitHub Dark Theme)
-   ========================================================================== */
+/* --- VARIÁVEIS TEMA GITHUB DARK --- */
 :root {
-  --gh-bg: #0d1117;
-  --gh-card-bg: #161b22;
-  --gh-border: #30363d;
-  --gh-text: #c9d1d9;
-  --gh-text-muted: #8b949e;
-  --gh-accent: #38bdf8;
-  --gh-white: #ffffff;
-  --max-width: 1000px;
+    --gh-bg: #0d1117;           
+    --gh-card-bg: #161b22;      
+    --gh-border: #30363d;       
+    --gh-text: #c9d1d9;         
+    --gh-muted: #8b949e;        
+    --gh-link: #58a6ff;         
+    --gh-btn: #238636;
+    --gh-btn-hover: #2ea043;
 }
 
+/* RESET GERAL */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: var(--gh-bg);
-  color: var(--gh-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--gh-bg);
+    color: var(--gh-text);
+    line-height: 1.6;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* CONTÊINER EXPANDIDO */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* ==========================================================================
-   2. NAVBAR
-   ========================================================================== */
-header {
-  width: 100%;
-  padding: 16px 20px;
-  background-color: rgba(13, 17, 23, 0.95);
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--gh-border);
+/* SEÇÃO MARGEM */
+.gh-section {
+    margin-top: 3.5rem;
 }
 
+/* NAVEGAÇÃO */
 nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  list-style: none;
-  max-width: var(--max-width);
-  margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gh-border);
+    background-color: var(--gh-bg);
 }
 
 nav a {
-  color: var(--gh-text);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
+    color: var(--gh-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: var(--gh-accent);
+    color: var(--gh-link);
 }
 
-/* ==========================================================================
-   3. HERO SECTION (TRILHAS COM PULSO DE ENERGIA ANIMADO)
-   ========================================================================== */
-.hero {
-  position: relative;
-  width: 100%;
-  padding: 90px 20px;
-  background-color: var(--gh-bg);
-  border-bottom: 1px solid var(--gh-border);
-  overflow: hidden;
-  
-  /* Circuito SVG visível */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.5;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.8%7D.p%7Bfill:%2338bdf8;fill-opacity:0.7%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='4'/%3E%3Ccircle class='p' cx='80' cy='70' r='2'/%3E%3Ccircle class='v' cx='160' cy='70' r='4'/%3E%3Ccircle class='p' cx='160' cy='70' r='2'/%3E%3Ccircle class='v' cx='180' cy='90' r='4'/%3E%3Ccircle class='v' cx='60' cy='80' r='4'/%3E%3Ccircle class='p' cx='60' cy='80' r='2'/%3E%3Ccircle class='v' cx='140' cy='170' r='4'/%3E%3C/svg%3E");
-  background-size: 240px 240px;
-  background-repeat: repeat;
+/* CABEÇALHOS GERAIS */
+h1, h2, h3, h4 {
+    color: #ffffff;
+    font-weight: 600;
 }
 
-/* Animação de varredura/pulso de corrente passando pelas trilhas */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 20%, rgba(56, 189, 248, 0.18) 50%, transparent 80%);
-  background-size: 200% 200%;
-  animation: pcbEnergyPulse 4s linear infinite;
-  pointer-events: none;
+.project-header {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-@keyframes pcbEnergyPulse {
-  0% { background-position: -100% -100%; }
-  100% { background-position: 200% 200%; }
+.project-header h1 {
+    font-size: 2.4rem;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-width);
-  margin: 0 auto;
+.gh-heading {
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--gh-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.hero-content h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--gh-white);
-  margin-bottom: 6px;
-  text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-}
-
-.typing-text {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--gh-accent);
-}
-
-.cursor {
-  animation: blink 1s infinite;
-  color: var(--gh-accent);
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ==========================================================================
-   4. ESTRUTURA GERAL E CARDS
-   ========================================================================== */
-section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 60px 20px;
-  border-bottom: 1px solid var(--gh-border);
-}
-
-h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--gh-white);
-  margin-bottom: 20px;
-}
-
-#about {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-#about img {
-  max-width: 220px;
-  border-radius: 8px;
-  border: 1px solid var(--gh-border);
-}
-
-.grid, .projects-grid, .education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.card, .project-card, .education-item, .experience-item {
-  background-color: var(--gh-card-bg);
-  border: 1px solid var(--gh-border);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Ajuste e visibilidade das imagens nos cards */
-.card img, .education-item img, .experience-item img, .project-card img {
-  max-height: 50px;
-  width: auto;
-  object-fit: contain;
-  align-self: flex-start;
-  margin-bottom: 6px;
-  border-radius: 4px;
-}
-
-/* ==========================================================================
-   5. RESPONSIVIDADE
-   ========================================================================== */
-@media (max-width: 768px) {
-  nav ul {
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .typing-text {
+/* EFEITO DIGITAÇÃO (TYPEWRITER) */
+.project-subtitle {
+    color: var(--gh-muted);
+    margin-top: 0.6rem;
     font-size: 1.2rem;
-  }
-  section {
-    padding: 40px 16px;
-  }
+    min-height: 1.8rem;
+}
+
+#typing-text {
+    color: var(--gh-link);
+    font-weight: 600;
+}
+
+.typing-cursor {
+    color: var(--gh-link);
+    font-weight: 400;
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ABOUT ME - FOTO EM DESTAQUE À ESQUERDA (400px) */
+.about-container {
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-image {
+    flex-shrink: 0;
+}
+
+.featured-photo {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    border: 1px solid var(--gh-border);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    background-color: var(--gh-card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    color: var(--gh-text);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* CARDS BANNER (EDUCATION & EXPERIENCE) */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.brand-card {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(145deg, #181f2a, #0f141c);
+    border: 1px solid var(--gh-border);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.brand-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gh-link);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+}
+
+.brand-card .card-logo {
+    max-width: 80%;
+    max-height: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.brand-card .text-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.brand-card:hover .card-logo,
+.brand-card:hover .text-logo {
+    opacity: 0.12;
+    transform: scale(0.92);
+}
+
+.brand-card .card-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(13, 17, 23, 0.94);
+    backdrop-filter: blur(4px);
+}
+
+.brand-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.brand-card .card-overlay h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.brand-card .card-overlay p {
+    font-size: 0.85rem;
+    color: var(--gh-muted);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 0.35rem 1.1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.brand-card:hover .explore-btn {
+    background: var(--gh-link);
+    border-color: var(--gh-link);
+}
+
+/* CARDS DE PROJETOS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.project-card {
+    background: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gh-link);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+.project-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background-color: #010409;
+    overflow: hidden;
+}
+
+.project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.project-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.project-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.project-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+}
+
+.project-tech {
+    font-size: 0.85rem;
+    color: var(--gh-link);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.project-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: #1f6beb;
+    color: #ffffff !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.project-btn:hover {
+    background: #388bfd;
+    transform: translateY(-1px);
+}
+
+/* SEÇÃO SKILLS */
+.skills-grid-gh {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-category-gh {
+    background: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.skill-category-gh h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 50px;
+}
+
+.skill-item img {
+    width: 40px !important; 
+    height: 40px !important;
+    object-fit: contain;
+}
+
+.skill-item span {
+    font-size: 0.75rem;
+    color: var(--gh-muted);
+}
+
+/* MODAIS */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--gh-border);
+    padding-bottom: 1rem;
+}
+
+.modal-logo {
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 1.8rem;
+    color: var(--gh-muted);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+/* RODAPÉ CENTRALIZADO */
+.gh-footer {
+    max-width: 1200px;
+    margin: 4rem auto 2rem auto;
+    padding: 2rem;
+    border-top: 1px solid var(--gh-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 26px !important;
+    height: 26px !important;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover img {
+    transform: translateY(-2px);
+}
+
+.made-by {
+    font-size: 0.85rem;
+    color: var(--gh-muted);
+}
+
+/* RESPONSIVIDADE PARA SMARTPHONES E TABLETS */
+@media (max-width: 900px) {
+    .about-container {
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .featured-photo {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+    }
 }
