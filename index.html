@@ -350,6 +350,48 @@
             }
         }
     </script>
+        <script>
+                const phrases = [
+                    "Mechatronics Engineer",
+                    "Embedded Systems & IoT",
+                    "Microelectronics (ASIC / SystemVerilog)",
+                    "Data Engineer"
+                ];
+        
+                let phraseIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                const typingText = document.getElementById("typing-text");
+        
+                function type() {
+                    const currentPhrase = phrases[phraseIndex];
+        
+                    if (isDeleting) {
+                        typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+        
+                    let typeSpeed = isDeleting ? 35 : 75;
+        
+                    if (!isDeleting && charIndex === currentPhrase.length) {
+                        typeSpeed = 2200; // Pausa ao completar a palavra
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length; // Passa para a próxima frase
+                        typeSpeed = 400; // Pausa antes de começar a nova palavra
+                    }
+        
+                    setTimeout(type, typeSpeed);
+                }
+        
+                document.addEventListener("DOMContentLoaded", type);
+            </script>
+</body>
+</html>
 
 </body>
 </html>
