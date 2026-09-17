@@ -340,11 +340,12 @@ h1, h2, h3, h4 {
     font-size: 0.85rem;
     color: var(--gh-muted);
 }
-/* --- ESTILO DOS CARDS DE PROJETOS (REFERÊNCIA) --- */
+/* --- ENQUADRAMENTO PERFEITO DE PROJETOS --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
+    width: 100%;
 }
 
 .project-card {
@@ -354,6 +355,8 @@ h1, h2, h3, h4 {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -363,34 +366,27 @@ h1, h2, h3, h4 {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 
+/* Trava a altura do contêiner da imagem */
 .project-img-wrapper {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 190px;
+    background-color: #010409;
     overflow: hidden;
-    background: #0d1117;
 }
 
+/* Corta e enquadra qualquer imagem sem deformar */
 .project-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
     transition: transform 0.3s ease;
 }
 
 .project-card:hover .project-img-wrapper img {
     transform: scale(1.05);
-}
-
-.project-placeholder-img {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gh-muted);
-    font-size: 1.1rem;
-    font-weight: 600;
 }
 
 .project-badge {
@@ -404,7 +400,8 @@ h1, h2, h3, h4 {
     border-radius: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .project-body {
@@ -446,6 +443,10 @@ h1, h2, h3, h4 {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.project-btn:hover {
+    background: #388bfd;
+    transform: translateY(-1px);
+}
 .project-btn:hover {
     background: #388bfd;
     transform: translateY(-1px);
