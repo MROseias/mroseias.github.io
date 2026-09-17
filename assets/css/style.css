@@ -522,3 +522,27 @@ h1, h2, h3, h4 {
     font-size: 0.85rem;
     color: var(--gh-muted);
 }
+/* --- EFEITO DE DIGITAÇÃO (TYPEWRITER) --- */
+.project-subtitle {
+    color: var(--gh-muted);
+    margin-top: 0.5rem;
+    font-size: 1.15rem;
+    min-height: 1.8rem; /* Impede que o conteúdo abaixo fique balançando */
+}
+
+#typing-text {
+    color: var(--gh-link);
+    font-weight: 600;
+}
+
+.typing-cursor {
+    color: var(--gh-link);
+    font-weight: 400;
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
