@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oseias Caires | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=13">
+    <link rel="stylesheet" href="assets/css/style.css?v=14">
 </head>
 <body>
 
@@ -22,12 +22,26 @@
 
     <div class="container" id="home">
         
-        <!-- Cabeçalho Principal com Efeito Digitação -->
-        <header class="project-header">
+        <!-- Cabeçalho Principal Estilo Hero PCB / Hardware -->
+        <header class="project-header pcb-hero">
+            <!-- Badge estilo Chip / LED Status -->
+            <div class="hero-chip-badge">
+                <span class="status-dot"></span> Hardware & Microelectronics
+            </div>
+            
             <h1>Oseias Caires</h1>
+            
+            <!-- Efeito Digitação -->
             <p class="project-subtitle">
                 <span id="typing-text"></span><span class="typing-cursor">|</span>
             </p>
+
+            <!-- Tags rápidas de contexto -->
+            <div class="hero-tags">
+                <span class="hero-tag">📍 Porto Velho, RO</span>
+                <span class="hero-tag">🔬 CI Amazônia (RTL Synthesis)</span>
+                <span class="hero-tag">⚡ SystemVerilog & KiCad</span>
+            </div>
         </header>
 
         <!-- Apresentação (About + Foto de Destaque à Esquerda) -->
@@ -118,7 +132,7 @@
             </div>
         </section>
 
-        <!-- Projetos (Cards com Imagem Enquadrada, Badge, Título e Tecnologias) -->
+        <!-- Projetos -->
         <section id="projects" class="gh-section">
             <h2 class="gh-heading">Featured Projects</h2>
             
@@ -327,7 +341,7 @@
         <p class="made-by">Made by 🦆 Oseias Caires</p>
     </footer>
 
-    <!-- Scripts do Modal e do Efeito Digitação -->
+    <!-- Scripts do Modal e Efeito Digitação -->
     <script>
         // Modal Control
         function openModal(id) {
@@ -370,12 +384,12 @@
             let typeSpeed = isDeleting ? 35 : 75;
 
             if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2200; // Pausa com a frase completa
+                typeSpeed = 2200; // Pausa ao terminar de digitar
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 400; // Pausa antes de iniciar a próxima frase
+                typeSpeed = 400; // Pausa antes da próxima palavra
             }
 
             setTimeout(type, typeSpeed);
