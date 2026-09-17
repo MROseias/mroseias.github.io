@@ -3,420 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oseias Caires Portfolio</title>
+    <title>Oseias Caires | Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="container">
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Oséias Caires</h1>
-                <p>Mechatronics Engineer</p>
-                <div>
-                    <span class="tech-badge">Robotics</span>
-                    <span class="tech-badge">Iot</span>
-                    <span class="tech-badge">Control Systems</span>
-                    <span class="tech-badge">Embedded Systems</span>
-                    <span class="tech-badge">AI & ML</span>
-                    <span class="tech-badge">Data Analyst</span>
-                </div>
-            </div>
-            <div class="hero-image">
-                Replace with your professional photo<br>
-                <small style="margin-top: 1rem; opacity: 0.8;">Add: style="background-image: url('your-photo.jpg'); background-size: cover; background-position: center;"</small>
+    <div class="container" id="home">
+        
+        <!-- Cabeçalho Principal (Home) -->
+        <header class="project-header" style="margin-top: 2rem;">
+            <h1>Oseias Caires</h1>
+            <p class="project-subtitle">Embedded Systems Developer & Hardware Engineer</p>
+        </header>
+
+        <!-- Seção de Projetos -->
+        <section id="projects" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">Featured Projects</h2>
+            <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
+                <h3 style="margin-bottom: 0.5rem;">
+                    <a href="sentinel.html" style="color: var(--gh-link, #58a6ff); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
+                </h3>
+                <p style="color: var(--gh-text, #c9d1d9);">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
             </div>
         </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/imgs/perfil.jpeg"  style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
-                </div>
-                <div class="about-text">
-                    <p>
-                        Passionate Mechatronics Engineer with expertise in designing, developing, and implementing 
-                        intelligent mechatronic systems. Experienced in integrating eletronics, desing, and software 
-                        components to create innovative solutions for complex engineering challenges.
-                    </p>
-                    <p>
-                        My work focuses on eletronic design, embedded programming, robotics and control systems. 
-                        I thrive on bridging the gap between mechanical design and cutting-edge technology to build 
-                        systems that are efficient, reliable, and future-ready.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Education & Certs</h2>
+        <!-- Nova Seção de Habilidades com Ícones -->
+        <section id="skills" class="gh-section" style="margin-top: 3rem;">
+            <h2 class="gh-heading">Technical Skills</h2>
             
-            <div class="edu-grid">
-                
-                <div class="edu-square" 
-                    onclick="openModal(this)"
-                    data-title="FIMCA - Integrated College Aparicio Carvalho" 
-                    data-year="2020 - 2025" 
-                    data-degree="Bachelor of Mechatronics Engineering"
-                    data-desc="Mechatronics Engineer graduated from FIMCA University Center, with a technical profile focused on the development of Embedded Systems and hardware-software integration. I have a solid background in Electronics (Analog, Digital and Power) and Computer Architecture, applied to device control. Skilled in implementing Artificial Intelligence and Neural Network algorithms for Robotics and automation solutions, focusing on efficient programming and interfacing of complex systems.">
-                    <img src="assets/imgs/fimca.png" alt="University Logo">
-                    <div class="overlay-text">Click to View</div>
-                </div>
-                <div class="edu-square" 
-                    style="background: #ffffff;"
-                    onclick="openModal(this)"
-                    data-title="Federal University of Technology – Paraná" 
-                    data-year="2025 - 2027" 
-                    data-degree="Post Graduate - Iot"
-                    data-desc="Internet of Things (IoT) specialist focused on developing complete solutions, from programming microcontroller devices to integration with Cloud Computing and Big Data. Expertise in wireless network architectures and modern interoperability protocols, ensuring robust connectivity and data security. Skilled in applying Artificial Intelligence (AIoT) and analytics to optimize automation and create intelligent and predictive systems.">
-                    
-                    <img src="assets/imgs/utfpr.png" alt="Tech School Logo">
-                    
-                    <div class="overlay-text" style="color: #000; font-weight: 800;">Click to View</div>
-                </div>
-
-                <div class="edu-square" 
-                    onclick="openModal(this)"
-                    data-title="CI AMAZÔNIA" 
-                    data-year="2025-2026" 
-                    data-degree="Professional Certification in Microelectronic"
-                    data-desc="Fundamentals of Digital Logic and CMOS Technology, Introduction to VLSI (Very Large Scale Integration), ASIC (Application Specific Integrated Circuit) Design Flow, and the use of Linux in electronic engineering environments.">
-                    <img src="assets/imgs/ci_amazonia.png" alt="Certification Logo">
-                    <div class="overlay-text">Click to View</div>
-                </div>
-
-                </div>
-        </section>
-
-        <div id="edu-modal" class="modal-overlay" onclick="closeModal(event)">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeModal(event)">&times;</span>
-                <h3 id="modal-title">Title Here</h3>
-                <span id="modal-year" class="modal-badge">Year</span>
-                <h4 id="modal-degree">Degree</h4>
-                <p id="modal-desc">Description goes here...</p>
-            </div>
-        </div>
-
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-image com-imagem">
-                        <img src="assets/imgs/sentinela_apresentacao.jpeg">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sentinel</h3>
-                        <a href="sentinel.html" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem; margin-top: 1rem;">View Details</a>
-                        <p>
-                            Sentinela is a program that enables firefighters in Rondônia to combat fires based on satellite data in a clear and visual way, where through a situation room and alerts they have all the information on fire outbreaks.
-                        </p>
-                        <span class="tech-badge">GeoProcessing</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Data Engineering</span>
+            <div class="skills-grid-gh">
+                <!-- Programming -->
+                <div class="skill-category-gh">
+                    <h3>Programming</h3>
+                    <div class="icon-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C">
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg" alt="Rust">
+                            <span>Rust</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>Color Detection System</h3>
-                        <p>
-                            Developed a control system for a 6-DOF robotic arm with inverse kinematics, trajectory planning, 
-                            and real-time position control using PID controllers.
-                        </p>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">OpenCV</span>
-                        <span class="tech-badge">Image Processing</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>UR3 Arm</h3>
-                        <p>
-                            Created an IoT-based home automation system with sensor integration, mobile app control, 
-                            and machine learning for predictive energy management.
-                        </p>
-                        <span class="tech-badge">C/C++</span>
-                        <span class="tech-badge">Kinematics</span>
-                        <span class="tech-badge">Fusion 360</span>
+                <!-- Robotics & Hardware -->
+                <div class="skill-category-gh">
+                    <h3>Hardware & Systems</h3>
+                    <div class="icon-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="Arduino">
+                            <span>Arduino</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi">
+                            <span>Raspberry</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
+                            <span>Linux</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>CNC Machine Design</h3>
-                        <p>
-                            Designed and fabricated a 3-axis CNC milling machine with custom electronics, stepper motor 
-                            control, and G-code interpretation software.
-                        </p>
-                        <span class="tech-badge">Fusion 360</span>
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">PCB Design</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>Face Detection and Recognition</h3>
-                        <p>
-                            Implemented a flight control system for a quadcopter with sensor fusion, attitude control, 
-                            and autonomous flight modes including GPS waypoint navigation.
-                        </p>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">OpenCV</span>
-                        <span class="tech-badge">PyTorch</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>Embedded Systems Development Board</h3>
-                        <p>
-                            Developed a machine learning model for predictive maintenance of industrial equipment using 
-                            vibration analysis and thermal imaging data.
-                        </p>
-                        <span class="tech-badge">C/C++</span>
-                        <span class="tech-badge">ALtium</span>
-                        <span class="tech-badge">PCB Design</span>
-                    </div>
-
-                </div>
-                    <div class="project-card">
-                    <div class="project-image">
-                        Add project photo
-                    </div>
-                    <div class="project-content">
-                        <h3>Remote Monitoring Ambient Quality</h3>
-                        <p>
-                            Developed a machine learning model for predictive maintenance of industrial equipment using 
-                            vibration analysis and thermal imaging data.
-                        </p>
-                        <span class="tech-badge">C/C++</span>
-                        <span class="tech-badge">ESP32</span>
-                        <span class="tech-badge">Iot</span>
+                <!-- Tools -->
+                <div class="skill-category-gh">
+                    <h3>Tools</h3>
+                    <div class="icon-grid">
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+                            <span>GitHub</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">            
-                <div class="skill-card">
-                    <h3>💻 Programming</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">C / C++</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Assembly</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Rust</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🤖 Robotics & Control</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">ROS / ROS2</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Control Systems</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Kinematics</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Computer Vision</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>⚡ Electronics</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">Arduino / ESP32</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">ARM Cortex</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">PCB Design</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🔧 Mechanical Design</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">Fusion 360 / CAD</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">FEA Analysis</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">CNC / 3D Print</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🧠 AI & ML</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">TensorFlow/PyTorch</span>
-                            <div class="skill-bar"> 
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Data Analysis</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="skill-card">
-                    <h3>🛠️ Tools</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <span class="skill-name">Git / Linux</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="skill-name">Docker</span>
-                            <div class="skill-bar">
-                                <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
     </div>
-</body>
-<script>
-    // Função para abrir o Modal e preencher os dados
-    function openModal(element) {
-        // Pega os dados escondidos no quadrado clicado
-        const title = element.getAttribute('data-title');
-        const year = element.getAttribute('data-year');
-        const degree = element.getAttribute('data-degree');
-        const desc = element.getAttribute('data-desc');
 
-        // Preenche o Modal com esses dados
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-year').innerText = year;
-        document.getElementById('modal-degree').innerText = degree;
-        document.getElementById('modal-desc').innerText = desc;
+    <!-- Novo Rodapé -->
+    <footer class="gh-footer">
+        <div class="social-icons">
+            <a href="https://github.com/MROseias" target="_blank" title="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+            </a>
+            <a href="#" target="_blank" title="Google Scholar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar">
+            </a>
+            <a href="#" target="_blank" title="ORCID">
+                <img src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" style="width:32px; height:32px;" alt="ORCID">
+            </a>
+            <a href="#" target="_blank" title="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+            </a>
+        </div>
+        <p class="made-by">Made by 🦆 Oseias Caires</p>
+    </footer>
 
-        // Mostra o Modal (muda display de 'none' para 'flex')
-        const modal = document.getElementById('edu-modal');
-        modal.style.display = 'flex';
-    }
-
-    // Função para fechar o Modal
-    function closeModal(event) {
-        // Fecha se clicar no X ou no fundo escuro (mas não dentro da caixa)
-        if (event.target.id === 'edu-modal' || event.target.className === 'close-btn') {
-            document.getElementById('edu-modal').style.display = 'none';
-        }
-    }
-
-    // Fecha se apertar a tecla ESC
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {
-            document.getElementById('edu-modal').style.display = 'none';
-        }
-    });
-</script>
 </body>
 </html>
