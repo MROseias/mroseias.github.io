@@ -65,16 +65,6 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
-.project-header {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
-}
-
-.project-header h1 {
-    font-size: 2.4rem;
-}
-
 .gh-heading {
     font-size: 1.5rem;
     border-bottom: 1px solid var(--gh-border);
@@ -82,11 +72,77 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
+/* --- CABEÇALHO HERO COM TEMA PCB / HARDWARE --- */
+.pcb-hero {
+    position: relative;
+    background-color: #12171f;
+    /* Padrão SVG de trilhas e vias de PCB */
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(88, 166, 255, 0.12), transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M10 10 h 20 v 20 h -20 z M40 40 h 30 M40 10 v 30 M10 50 h 20 v 20 M60 50 h 15' stroke='%2330363d' stroke-width='1.2' fill='none' stroke-dasharray='3,3'/%3E%3Ccircle cx='30' cy='10' r='2.5' fill='%2358a6ff' opacity='0.35'/%3E%3Ccircle cx='40' cy='40' r='2.5' fill='%232ea043' opacity='0.35'/%3E%3C/svg%3E");
+    border: 1px solid var(--gh-border);
+    border-radius: 18px;
+    padding: 3rem 2rem 2.2rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pcb-hero h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* Trilha superior cintilante */
+.pcb-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gh-link), #2ea043, transparent);
+}
+
+/* Badge Superior com LED Indicador */
+.hero-chip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gh-link);
+    background: rgba(88, 166, 255, 0.08);
+    border: 1px solid rgba(88, 166, 255, 0.25);
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #2ea043;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #2ea043;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+}
+
 /* EFEITO DIGITAÇÃO (TYPEWRITER) */
 .project-subtitle {
     color: var(--gh-muted);
     margin-top: 0.6rem;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     min-height: 1.8rem;
 }
 
@@ -105,6 +161,25 @@ h1, h2, h3, h4 {
 @keyframes blinkCursor {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Tags do Hero Banner */
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.hero-tag {
+    font-size: 0.82rem;
+    color: var(--gh-muted);
+    background: rgba(22, 27, 34, 0.85);
+    border: 1px solid var(--gh-border);
+    padding: 4px 12px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
 }
 
 /* ABOUT ME - FOTO EM DESTAQUE À ESQUERDA (400px) */
@@ -488,7 +563,7 @@ h1, h2, h3, h4 {
     color: var(--gh-muted);
 }
 
-/* RESPONSIVIDADE PARA SMARTPHONES E TABLETS */
+/* RESPONSIVIDADE */
 @media (max-width: 900px) {
     .about-container {
         justify-content: center;
@@ -500,5 +575,9 @@ h1, h2, h3, h4 {
         width: 100%;
         max-width: 300px;
         height: 300px;
+    }
+
+    .pcb-hero h1 {
+        font-size: 2.1rem;
     }
 }
