@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oseias Caires | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -27,30 +27,58 @@
             <p class="project-subtitle">Embedded Systems Developer & Hardware Engineer</p>
         </header>
 
-        <!-- Apresentação (About) -->
+        <!-- Apresentação (About + Foto) -->
         <section id="about" class="gh-section" style="margin-top: 3rem;">
             <h2 class="gh-heading">About Me</h2>
-            <div style="color: var(--gh-text, #c9d1d9); line-height: 1.7;">
-                <p>Hello! I am an Embedded Systems Developer and Hardware Engineer focused on microelectronics and digital logic design. I am currently participating in the CI Amazônia residency, specifically working on the RTL Synthesis track.</p>
-                <p style="margin-top: 1rem;">My background includes strong experience in data engineering from my time at SETIC de RO, where I served as the lead developer for the Sentinela project. My current focus is on building robust architectures, exploring RISC-V, and designing custom PCBs.</p>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Olá! Sou desenvolvedor de sistemas embarcados e engenheiro de hardware com foco em microeletrônica, projeto de PCB e lógica digital.</p>
+                    <p style="margin-top: 1rem;">Atualmente participo da Residência em Microeletrônica do <strong>CI Amazônia</strong> na trilha de <em>RTL Synthesis</em>. Possuo formação técnica e pós-graduação pela UTFPR, além de experiência prévia como desenvolvedor principal de projetos de engenharia de dados e robótica móvel.</p>
+                </div>
+                <div class="about-image">
+                    <img src="imgs/perfil.jpeg" alt="Oseias Caires em projeto de PCB" class="featured-photo">
+                </div>
             </div>
         </section>
 
-        <!-- Educação -->
+        <!-- Educação com Cards Clicáveis e Logos -->
         <section id="education" class="gh-section" style="margin-top: 3rem;">
-            <h2 class="gh-heading">Education</h2>
-            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <h2 class="gh-heading">Education & Residency</h2>
+            <p style="color: var(--gh-muted); font-size: 0.9rem; margin-bottom: 1rem;">Clique na instituição para ver os detalhes:</p>
+            
+            <div class="education-grid">
                 
-                <!-- Pós-graduação -->
-                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
-                    <h3 style="margin-bottom: 0.2rem; color: #ffffff; font-size: 1.1rem;">Postgraduate Specialization in Internet of Things (IoT)</h3>
-                    <p style="color: var(--gh-muted, #8b949e); font-size: 0.9rem; margin-bottom: 0.5rem;">Universidade Tecnológica Federal do Paraná (UTFPR)</p>
+                <!-- CI Amazônia -->
+                <div class="edu-card" onclick="openModal('modal-ci')">
+                    <div class="logo-wrapper">
+                        <img src="imgs/ci_amazonia.png" alt="CI Amazônia" class="edu-logo">
+                    </div>
+                    <div class="edu-info">
+                        <h3>CI Amazônia</h3>
+                        <p>Residência em Microeletrônica</p>
+                    </div>
                 </div>
-                
-                <!-- Técnico -->
-                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
-                    <h3 style="margin-bottom: 0.2rem; color: #ffffff; font-size: 1.1rem;">Technical Diploma in Electronics</h3>
-                    <p style="color: var(--gh-muted, #8b949e); font-size: 0.9rem; margin-bottom: 0.5rem;">Universidade Tecnológica Federal do Paraná (UTFPR) • 2015 - 2017</p>
+
+                <!-- UTFPR -->
+                <div class="edu-card" onclick="openModal('modal-utfpr')">
+                    <div class="logo-wrapper">
+                        <img src="imgs/utfpr.png" alt="UTFPR" class="edu-logo">
+                    </div>
+                    <div class="edu-info">
+                        <h3>UTFPR</h3>
+                        <p>Pós-Graduação & Diploma Técnico</p>
+                    </div>
+                </div>
+
+                <!-- FIMCA -->
+                <div class="edu-card" onclick="openModal('modal-fimca')">
+                    <div class="logo-wrapper">
+                        <img src="imgs/fimca.png" alt="FIMCA" class="edu-logo">
+                    </div>
+                    <div class="edu-info">
+                        <h3>FIMCA</h3>
+                        <p>Formação Acadêmica</p>
+                    </div>
                 </div>
 
             </div>
@@ -60,22 +88,20 @@
         <section id="projects" class="gh-section" style="margin-top: 3rem;">
             <h2 class="gh-heading">Featured Projects</h2>
             <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <!-- Projeto Sentinel -->
-                <div style="background: var(--gh-card-bg, #161b22); border: 1px solid var(--gh-border, #30363d); padding: 1.5rem; border-radius: 6px;">
+                <div style="background: var(--gh-card-bg); border: 1px solid var(--gh-border); padding: 1.5rem; border-radius: 6px;">
                     <h3 style="margin-bottom: 0.5rem;">
-                        <a href="sentinel.html" style="color: var(--gh-link, #58a6ff); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
+                        <a href="sentinel.html" style="color: var(--gh-link); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
                     </h3>
-                    <p style="color: var(--gh-text, #c9d1d9); font-size: 0.95rem;">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
+                    <p style="color: var(--gh-text); font-size: 0.95rem;">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Habilidades com Ícones -->
+        <!-- Seção de Habilidades -->
         <section id="skills" class="gh-section" style="margin-top: 3rem;">
             <h2 class="gh-heading">Technical Skills</h2>
             
             <div class="skills-grid-gh">
-                <!-- Programming -->
                 <div class="skill-category-gh">
                     <h3>Programming</h3>
                     <div class="icon-grid">
@@ -98,7 +124,6 @@
                     </div>
                 </div>
 
-                <!-- Hardware & Systems -->
                 <div class="skill-category-gh">
                     <h3>Hardware & Systems</h3>
                     <div class="icon-grid">
@@ -106,7 +131,6 @@
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux">
                             <span>Linux</span>
                         </div>
-                        <!-- Usando ícones genéricos do Devicon para hardware onde aplicável -->
                         <div class="skill-item">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi">
                             <span>Raspberry</span>
@@ -118,7 +142,6 @@
                     </div>
                 </div>
 
-                <!-- Tools -->
                 <div class="skill-category-gh">
                     <h3>Tools</h3>
                     <div class="icon-grid">
@@ -141,6 +164,45 @@
 
     </div>
 
+    <!-- POPUPS / MODAIS DE EDUCAÇÃO -->
+    <div id="modal-ci" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-ci')">&times;</span>
+            <div class="modal-header">
+                <img src="imgs/ci_amazonia.png" alt="CI Amazônia" class="modal-logo">
+                <h2>CI Amazônia</h2>
+            </div>
+            <p><strong>Programa:</strong> Residência em Microeletrônica</p>
+            <p><strong>Trilha:</strong> RTL Synthesis</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Capacitação avançada em síntese lógica digital, projeto de circuitos integrados e arquiteturas de hardware focadas no ecossistema de semicondutores.</p>
+        </div>
+    </div>
+
+    <div id="modal-utfpr" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-utfpr')">&times;</span>
+            <div class="modal-header">
+                <img src="imgs/utfpr.png" alt="UTFPR" class="modal-logo">
+                <h2>UTFPR</h2>
+            </div>
+            <p><strong>Pós-Graduação:</strong> Especialização em Internet das Coisas (IoT)</p>
+            <p><strong>Técnico:</strong> Técnico em Eletrônica (2015 - 2017)</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Formação técnica em eletrônica analógica e digital, circuitos integrados, microcontroladores e sistemas aplicados a sistemas embarcados e IoT.</p>
+        </div>
+    </div>
+
+    <div id="modal-fimca" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal-fimca')">&times;</span>
+            <div class="modal-header">
+                <img src="imgs/fimca.png" alt="FIMCA" class="modal-logo">
+                <h2>FIMCA</h2>
+            </div>
+            <p><strong>Instituição:</strong> Centro Universitário Aparício Carvalho (FIMCA)</p>
+            <p style="margin-top: 1rem; color: var(--gh-text);">Detalhes sobre a trajetória acadêmica, cursos e projetos realizados na instituição.</p>
+        </div>
+    </div>
+
     <!-- Rodapé -->
     <footer class="gh-footer">
         <div class="social-icons">
@@ -159,6 +221,21 @@
         </div>
         <p class="made-by">Made by 🦆 Oseias Caires</p>
     </footer>
+
+    <!-- Script dos Modais -->
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
