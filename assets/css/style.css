@@ -1,4 +1,4 @@
-/* --- TEMA GITHUB DARK --- */
+/* --- VARIÁVEIS TEMA GITHUB DARK --- */
 :root {
     --gh-bg: #0d1117;           
     --gh-card-bg: #161b22;      
@@ -10,6 +10,7 @@
     --gh-btn-hover: #2ea043;
 }
 
+/* RESET GERAL */
 * {
     margin: 0;
     padding: 0;
@@ -23,11 +24,16 @@ body {
     line-height: 1.6;
 }
 
-/* --- CONTÊINER PRINCIPAL (EXPANDIDO) --- */
+/* CONTÊINER EXPANDIDO */
 .container {
-    max-width: 1200px; /* Expandido de 900px para 1200px */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+/* SEÇÃO MARGEM */
+.gh-section {
+    margin-top: 3.5rem;
 }
 
 /* NAVEGAÇÃO */
@@ -46,6 +52,7 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -60,12 +67,12 @@ h1, h2, h3, h4 {
 
 .project-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.project-subtitle {
-    color: var(--gh-muted);
-    margin-top: 0.5rem;
+.project-header h1 {
+    font-size: 2.4rem;
 }
 
 .gh-heading {
@@ -75,10 +82,35 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
-/* --- FOTO DE APRESENTAÇÃO E ABOUT (400PX Destaque Max) --- */
+/* EFEITO DIGITAÇÃO (TYPEWRITER) */
+.project-subtitle {
+    color: var(--gh-muted);
+    margin-top: 0.6rem;
+    font-size: 1.2rem;
+    min-height: 1.8rem;
+}
+
+#typing-text {
+    color: var(--gh-link);
+    font-weight: 600;
+}
+
+.typing-cursor {
+    color: var(--gh-link);
+    font-weight: 400;
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ABOUT ME - FOTO EM DESTAQUE À ESQUERDA (400px) */
 .about-container {
     display: flex;
-    gap: 3.5rem; /* Aumentado para equilibrar com a foto maior */
+    gap: 3.5rem;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -88,13 +120,13 @@ h1, h2, h3, h4 {
 }
 
 .featured-photo {
-    width: 400px;  /* Aumentado para 400px */
-    height: 400px; /* Mantém a proporção perfeita */
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     object-position: center;
     border-radius: 20px;
     border: 1px solid var(--gh-border);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7); /* Sombra mais marcada */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
     background-color: var(--gh-card-bg);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -109,46 +141,19 @@ h1, h2, h3, h4 {
     min-width: 300px;
     color: var(--gh-text);
     line-height: 1.8;
+    font-size: 1.05rem;
 }
 
-/* Ajuste automático para tablets e celulares */
-@media (max-width: 900px) {
-    .about-container {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .featured-photo {
-        width: 100%;
-        max-width: 320px;
-        height: 320px;
-    }
-}
-/* Ajuste automático para telas menores/smartphones */
-@media (max-width: 768px) {
-    .about-container {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .featured-photo {
-        width: 100%;
-        max-width: 280px;
-        height: 280px;
-    }
-}
-
-/* BRAND BANNER CARDS (ESTILO TESLA / NVIDIA / WATERLOO) */
+/* CARDS BANNER (EDUCATION & EXPERIENCE) */
 .brand-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
 .brand-card {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: #161b22;
     background: linear-gradient(145deg, #181f2a, #0f141c);
     border: 1px solid var(--gh-border);
     border-radius: 14px;
@@ -239,146 +244,10 @@ h1, h2, h3, h4 {
     border-color: var(--gh-link);
 }
 
-/* MODAL / POPUP */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.modal-content {
-    background: var(--gh-card-bg);
-    border: 1px solid var(--gh-border);
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
-}
-
-.modal-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    border-bottom: 1px solid var(--gh-border);
-    padding-bottom: 1rem;
-}
-
-.modal-logo {
-    width: 45px;
-    height: 45px;
-    background: #ffffff;
-    padding: 4px;
-    border-radius: 6px;
-    object-fit: contain;
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.2rem;
-    font-size: 1.8rem;
-    color: var(--gh-muted);
-    cursor: pointer;
-}
-
-.modal-close:hover {
-    color: #ffffff;
-}
-
-/* SEÇÃO DE HABILIDADES */
-.skills-grid-gh {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.skill-category-gh {
-    background: var(--gh-card-bg);
-    border: 1px solid var(--gh-border);
-    border-radius: 6px;
-    padding: 1.5rem;
-}
-
-.skill-category-gh h3 {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.icon-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    width: 50px;
-}
-
-.skill-item img {
-    width: 40px !important; 
-    height: 40px !important;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.skill-item span {
-    font-size: 0.75rem;
-    color: var(--gh-muted);
-}
-
-/* RODAPÉ */
-.gh-footer {
-    max-width: 900px;
-    margin: 4rem auto 2rem auto;
-    padding: 2rem 2rem 0 2rem;
-    border-top: 1px solid var(--gh-border);
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.social-icons {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.social-icons img {
-    width: 24px !important;
-    height: 24px !important;
-    object-fit: contain;
-}
-
-.social-icons img[alt="Google Scholar"],
-.social-icons img[alt="ORCID"] {
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 2px;
-}
-
-.made-by {
-    font-size: 0.85rem;
-    color: var(--gh-muted);
-}
-/* --- ENQUADRAMENTO PERFEITO DE PROJETOS --- */
+/* CARDS DE PROJETOS */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     width: 100%;
 }
@@ -401,7 +270,6 @@ h1, h2, h3, h4 {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* Trava a altura do contêiner da imagem */
 .project-img-wrapper {
     position: relative;
     width: 100%;
@@ -410,7 +278,6 @@ h1, h2, h3, h4 {
     overflow: hidden;
 }
 
-/* Corta e enquadra qualquer imagem sem deformar */
 .project-img-wrapper img {
     width: 100%;
     height: 100%;
@@ -482,21 +349,119 @@ h1, h2, h3, h4 {
     background: #388bfd;
     transform: translateY(-1px);
 }
-.project-btn:hover {
-    background: #388bfd;
-    transform: translateY(-1px);
+
+/* SEÇÃO SKILLS */
+.skills-grid-gh {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
-/* --- RODAPÉ CENTRALIZADO --- */
+
+.skill-category-gh {
+    background: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.skill-category-gh h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 50px;
+}
+
+.skill-item img {
+    width: 40px !important; 
+    height: 40px !important;
+    object-fit: contain;
+}
+
+.skill-item span {
+    font-size: 0.75rem;
+    color: var(--gh-muted);
+}
+
+/* MODAIS */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--gh-border);
+    padding-bottom: 1rem;
+}
+
+.modal-logo {
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 1.8rem;
+    color: var(--gh-muted);
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+/* RODAPÉ CENTRALIZADO */
 .gh-footer {
-    max-width: 1200px; /* Acompanha a largura do container */
+    max-width: 1200px;
     margin: 4rem auto 2rem auto;
     padding: 2rem;
     border-top: 1px solid var(--gh-border);
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Centraliza os filhos na horizontal */
+    align-items: center;
     justify-content: center;
-    text-align: center;     /* Centraliza textos */
+    text-align: center;
     gap: 1rem;
 }
 
@@ -504,7 +469,7 @@ h1, h2, h3, h4 {
     display: flex;
     gap: 16px;
     align-items: center;
-    justify-content: center; /* Centraliza a linha de ícones */
+    justify-content: center;
 }
 
 .social-icons img {
@@ -522,27 +487,18 @@ h1, h2, h3, h4 {
     font-size: 0.85rem;
     color: var(--gh-muted);
 }
-/* --- EFEITO DE DIGITAÇÃO (TYPEWRITER) --- */
-.project-subtitle {
-    color: var(--gh-muted);
-    margin-top: 0.5rem;
-    font-size: 1.15rem;
-    min-height: 1.8rem; /* Impede que o conteúdo abaixo fique balançando */
-}
 
-#typing-text {
-    color: var(--gh-link);
-    font-weight: 600;
-}
-
-.typing-cursor {
-    color: var(--gh-link);
-    font-weight: 400;
-    margin-left: 2px;
-    animation: blinkCursor 0.8s infinite;
-}
-
-@keyframes blinkCursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+/* RESPONSIVIDADE PARA SMARTPHONES E TABLETS */
+@media (max-width: 900px) {
+    .about-container {
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .featured-photo {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+    }
 }
