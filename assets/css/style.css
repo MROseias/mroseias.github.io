@@ -68,7 +68,6 @@ nav a {
   transition: color 0.2s ease;
 }
 
-
 nav a:hover {
   color: var(--gh-accent);
 }
@@ -76,22 +75,19 @@ nav a:hover {
 /* ==========================================================================
    3. HERO SECTION (COM BACKGROUND DE PCB INTEGRADO)
    ========================================================================== */
-.hero, 
-.pcb-hero {
+.hero {
   position: relative;
   width: 100%;
   padding: 80px 20px;
   background-color: var(--gh-bg);
   border-bottom: 1px solid var(--gh-border);
   
-  /* Circuito embutido via Data-URI */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.22;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.35%7D.p%7Bfill:%2338bdf8;fill-opacity:0.3%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='80' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='160' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='160' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='180' cy='90' r='3.5'/%3E%3Ccircle class='v' cx='60' cy='80' r='3.5'/%3E%3Ccircle class='p' cx='60' cy='80' r='1.5'/%3E%3Ccircle class='v' cx='140' cy='170' r='3.5'/%3E%3C/svg%3E");
   background-size: 240px 240px;
   background-repeat: repeat;
 }
 
-.hero::before, 
-.pcb-hero::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -132,8 +128,7 @@ nav a:hover {
 /* ==========================================================================
    4. ESTRUTURA GERAL DAS SEÇÕES (CENTRALIZADAS)
    ========================================================================== */
-section, 
-.container {
+section {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 60px 20px;
@@ -147,7 +142,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Alinhamento padrão dos blocos de conteúdo */
 #about {
   display: flex;
   flex-direction: column;
@@ -161,10 +155,7 @@ h2 {
   border: 1px solid var(--gh-border);
 }
 
-/* Grids de Cards (Projetos / Educação / Experiência) */
-.grid, 
-.projects-grid, 
-.education-grid {
+.grid, .projects-grid, .education-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
@@ -172,10 +163,7 @@ h2 {
   margin-top: 20px;
 }
 
-.card, 
-.project-card, 
-.education-item, 
-.experience-item {
+.card, .project-card, .education-item, .experience-item {
   background-color: var(--gh-card-bg);
   border: 1px solid var(--gh-border);
   border-radius: 8px;
@@ -185,9 +173,7 @@ h2 {
   gap: 10px;
 }
 
-.card img, 
-.education-item img, 
-.experience-item img {
+.card img, .education-item img, .experience-item img {
   max-height: 70px;
   width: auto;
   object-fit: contain;
@@ -202,16 +188,13 @@ h2 {
     gap: 15px;
     flex-wrap: wrap;
   }
-
   .hero-content h1 {
     font-size: 2.2rem;
   }
-
   .typing-text {
     font-size: 1.2rem;
   }
-
-  section, .container {
+  section {
     padding: 40px 16px;
   }
 }
