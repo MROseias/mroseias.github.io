@@ -73,7 +73,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (COM TRILHAS DE PCB ANIMADAS E PULSO DE ENERGIA)
+   3. HERO SECTION (TRILHAS COM PULSO DE ENERGIA ANIMADO)
    ========================================================================== */
 .hero {
   position: relative;
@@ -83,28 +83,26 @@ nav a:hover {
   border-bottom: 1px solid var(--gh-border);
   overflow: hidden;
   
-  /* Circuito de PCB com mais contraste */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.45;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.7%7D.p%7Bfill:%2338bdf8;fill-opacity:0.6%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='4'/%3E%3Ccircle class='p' cx='80' cy='70' r='2'/%3E%3Ccircle class='v' cx='160' cy='70' r='4'/%3E%3Ccircle class='p' cx='160' cy='70' r='2'/%3E%3Ccircle class='v' cx='180' cy='90' r='4'/%3E%3Ccircle class='v' cx='60' cy='80' r='4'/%3E%3Ccircle class='p' cx='60' cy='80' r='2'/%3E%3Ccircle class='v' cx='140' cy='170' r='4'/%3E%3C/svg%3E");
+  /* Circuito SVG visível */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.5;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.5;stroke-opacity:0.8%7D.p%7Bfill:%2338bdf8;fill-opacity:0.7%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='4'/%3E%3Ccircle class='p' cx='80' cy='70' r='2'/%3E%3Ccircle class='v' cx='160' cy='70' r='4'/%3E%3Ccircle class='p' cx='160' cy='70' r='2'/%3E%3Ccircle class='v' cx='180' cy='90' r='4'/%3E%3Ccircle class='v' cx='60' cy='80' r='4'/%3E%3Ccircle class='p' cx='60' cy='80' r='2'/%3E%3Ccircle class='v' cx='140' cy='170' r='4'/%3E%3C/svg%3E");
   background-size: 240px 240px;
   background-repeat: repeat;
 }
 
-/* Camada animada de Pulso de Energia sobre as trilhas */
+/* Animação de varredura/pulso de corrente passando pelas trilhas */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.05) 0%, rgba(13, 17, 23, 0.9) 100%),
-              linear-gradient(45deg, transparent 40%, rgba(56, 189, 248, 0.15) 50%, transparent 60%);
+  background: linear-gradient(135deg, transparent 20%, rgba(56, 189, 248, 0.18) 50%, transparent 80%);
   background-size: 200% 200%;
-  animation: energyPulse 6s ease infinite;
+  animation: pcbEnergyPulse 4s linear infinite;
   pointer-events: none;
 }
 
-@keyframes energyPulse {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes pcbEnergyPulse {
+  0% { background-position: -100% -100%; }
+  100% { background-position: 200% 200%; }
 }
 
 .hero-content {
@@ -119,7 +117,7 @@ nav a:hover {
   font-weight: 700;
   color: var(--gh-white);
   margin-bottom: 6px;
-  text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
 .typing-text {
@@ -139,7 +137,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   4. ESTRUTURA GERAL DAS SEÇÕES (CENTRALIZADAS)
+   4. ESTRUTURA GERAL E CARDS
    ========================================================================== */
 section {
   max-width: var(--max-width);
@@ -186,16 +184,14 @@ h2 {
   gap: 10px;
 }
 
-/* Tratamento para os logos dentro dos cards ficarem visíveis e limpos */
-.education-item img, .experience-item img, .card img {
+/* Ajuste e visibilidade das imagens nos cards */
+.card img, .education-item img, .experience-item img, .project-card img {
   max-height: 50px;
   width: auto;
   object-fit: contain;
-  background-color: rgba(255, 255, 255, 0.03);
-  padding: 4px;
-  border-radius: 4px;
-  margin-bottom: 8px;
   align-self: flex-start;
+  margin-bottom: 6px;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
