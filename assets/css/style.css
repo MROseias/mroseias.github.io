@@ -72,40 +72,23 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
-/* --- CABEÇALHO HERO COM TEMA PCB / HARDWARE --- */
-.pcb-hero {
-    position: relative;
-    background-color: #12171f;
-    /* Padrão SVG de trilhas e vias de PCB */
-    background-image: 
-        radial-gradient(circle at 50% 0%, rgba(88, 166, 255, 0.12), transparent 70%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M10 10 h 20 v 20 h -20 z M40 40 h 30 M40 10 v 30 M10 50 h 20 v 20 M60 50 h 15' stroke='%2330363d' stroke-width='1.2' fill='none' stroke-dasharray='3,3'/%3E%3Ccircle cx='30' cy='10' r='2.5' fill='%2358a6ff' opacity='0.35'/%3E%3Ccircle cx='40' cy='40' r='2.5' fill='%232ea043' opacity='0.35'/%3E%3C/svg%3E");
-    border: 1px solid var(--gh-border);
-    border-radius: 18px;
-    padding: 3rem 2rem 2.2rem 2rem;
-    text-align: center;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+.card-header-pcb {
+  background-color: #0b0f19;
+  /* Pattern SVG com trilhas em 45° e vias integradas */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.18;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230b0f19;stroke:%2338bdf8;stroke-width:1.2;stroke-opacity:0.28%7D.p%7Bfill:%2338bdf8;fill-opacity:0.25%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='80' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='160' cy='70' r='3.5'/%3E%3Ccircle class='p' cx='160' cy='70' r='1.5'/%3E%3Ccircle class='v' cx='180' cy='90' r='3.5'/%3E%3Ccircle class='v' cx='60' cy='80' r='3.5'/%3E%3Ccircle class='p' cx='60' cy='80' r='1.5'/%3E%3Ccircle class='v' cx='140' cy='170' r='3.5'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  background-repeat: repeat;
+  position: relative;
 }
 
-.pcb-hero h1 {
-    font-size: 2.5rem;
-    letter-spacing: -0.5px;
+/* Máscara suave para apagar o fundo no centro e destacar o nome/texto */
+.card-header-pcb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(11, 15, 25, 0.85) 20%, rgba(11, 15, 25, 0.3) 100%);
+  pointer-events: none;
 }
-
-/* Trilha superior cintilante */
-.pcb-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gh-link), #2ea043, transparent);
-}
-
 /* Badge Superior com LED Indicador */
 .hero-chip-badge {
     display: inline-flex;
