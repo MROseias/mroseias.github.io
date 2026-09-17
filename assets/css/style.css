@@ -75,10 +75,10 @@ h1, h2, h3, h4 {
     margin-bottom: 1.5rem;
 }
 
-/* --- FOTO DE APRESENTAÇÃO E ABOUT --- */
+/* --- FOTO DE APRESENTAÇÃO E ABOUT (EXPANDIDA) --- */
 .about-container {
     display: flex;
-    gap: 2.5rem; /* Aumentado para dar mais respiro */
+    gap: 3rem; /* Espaçamento generoso entre a foto e o texto */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -88,14 +88,19 @@ h1, h2, h3, h4 {
 }
 
 .featured-photo {
-    width: 260px;  /* Aumentado de 200px para 260px */
-    height: 260px; /* Mantém a proporção quadrada perfeita */
+    width: 320px;  /* Aumentado de 260px para 320px */
+    height: 320px; /* Mantém a proporção perfeita */
     object-fit: cover;
     object-position: center;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid var(--gh-border);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     background-color: var(--gh-card-bg);
+    transition: transform 0.3s ease;
+}
+
+.featured-photo:hover {
+    transform: scale(1.02); /* Leve zoom ao passar o mouse */
 }
 
 .about-text {
@@ -103,6 +108,20 @@ h1, h2, h3, h4 {
     min-width: 280px;
     color: var(--gh-text);
     line-height: 1.75;
+}
+
+/* Ajuste automático para telas menores/smartphones */
+@media (max-width: 768px) {
+    .about-container {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .featured-photo {
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+    }
 }
 
 /* BRAND BANNER CARDS (ESTILO TESLA / NVIDIA / WATERLOO) */
