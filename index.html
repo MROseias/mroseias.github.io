@@ -120,16 +120,61 @@
             </div>
         </section>
 
-        <!-- Projetos -->
+<!-- Projetos estilo Cards de Publicação -->
         <section id="projects" class="gh-section" style="margin-top: 3rem;">
             <h2 class="gh-heading">Featured Projects</h2>
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div style="background: var(--gh-card-bg); border: 1px solid var(--gh-border); padding: 1.5rem; border-radius: 6px;">
-                    <h3 style="margin-bottom: 0.5rem;">
-                        <a href="sentinel.html" style="color: var(--gh-link); text-decoration: none;">📦 Sentinel - Autonomous Mobile Robot</a>
-                    </h3>
-                    <p style="color: var(--gh-text); font-size: 0.95rem;">A ROS2-based robot capable of SLAM and autonomous navigation in warehouse environments.</p>
+            
+            <div class="project-grid">
+                
+                <!-- Card 1: Sentinel -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="assets/imgs/sentinela_apresentacao.jpeg" alt="Sentinel Robot">
+                        <span class="project-badge" style="background: #1f6beb;">ROS 2</span>
+                    </div>
+                    <div class="project-body">
+                        <div>
+                            <h3 class="project-title">Sentinel - Autonomous Mobile Robot</h3>
+                            <p class="project-tech">ROS 2, Navigation2, SLAM, Python, C++</p>
+                        </div>
+                        <a href="sentinel.html" class="project-btn">View Project</a>
+                    </div>
                 </div>
+
+                <!-- Card 2: RISC-V Core -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <div class="project-placeholder-img" style="background: linear-gradient(135deg, #1f2937, #111827);">
+                            <span>💻 SystemVerilog</span>
+                        </div>
+                        <span class="project-badge" style="background: #238636;">RISC-V</span>
+                    </div>
+                    <div class="project-body">
+                        <div>
+                            <h3 class="project-title">32-bit RISC-V Processor Core</h3>
+                            <p class="project-tech">SystemVerilog, Verilator, Digital Design</p>
+                        </div>
+                        <a href="#" class="project-btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Custom PCB -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <div class="project-placeholder-img" style="background: linear-gradient(135deg, #0f2027, #203a43);">
+                            <span>🔌 Hardware Design</span>
+                        </div>
+                        <span class="project-badge" style="background: #8957e5;">KiCad</span>
+                    </div>
+                    <div class="project-body">
+                        <div>
+                            <h3 class="project-title">PQDB Power Quality Board</h3>
+                            <p class="project-tech">KiCad, PCB Layout, Embedded Systems</p>
+                        </div>
+                        <a href="#" class="project-btn">View Project</a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
