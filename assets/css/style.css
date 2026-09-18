@@ -65,14 +65,40 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
+/* HEADER COM TRILHAS ELETRÔNICAS E PULSO DE ENERGIA */
 .project-header {
+    position: relative;
     text-align: center;
+    padding: 4rem 1.5rem;
     margin-top: 2rem;
     margin-bottom: 2.5rem;
+    background-color: var(--gh-card-bg);
+    border: 1px solid var(--gh-border);
+    border-radius: 16px;
+    overflow: hidden;
+    
+    /* Circuito impresso vetorial embutido em SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2358a6ff;stroke-width:1.5;stroke-opacity:0.25;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230d1117;stroke:%2358a6ff;stroke-width:1.5;stroke-opacity:0.5%7D.p%7Bfill:%2358a6ff;fill-opacity:0.5%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='4'/%3E%3Ccircle class='p' cx='80' cy='70' r='2'/%3E%3Ccircle class='v' cx='160' cy='70' r='4'/%3E%3Ccircle class='p' cx='160' cy='70' r='2'/%3E%3Ccircle class='v' cx='180' cy='90' r='4'/%3E%3Ccircle class='v' cx='60' cy='80' r='4'/%3E%3Ccircle class='p' cx='60' cy='80' r='2'/%3E%3Ccircle class='v' cx='140' cy='170' r='4'/%3E%3C/svg%3E");
+    background-size: 240px 240px;
+    background-repeat: repeat;
+}
+
+/* Camada de pulso de energia contínuo (Chip Inventor Style) */
+.project-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 20%, rgba(88, 166, 255, 0.22) 50%, transparent 80%);
+    background-size: 200% 200%;
+    animation: pcbEnergyPulse 3.5s linear infinite;
+    pointer-events: none;
 }
 
 .project-header h1 {
+    position: relative;
+    z-index: 1;
     font-size: 2.4rem;
+    text-shadow: 0 0 16px rgba(88, 166, 255, 0.4);
 }
 
 .gh-heading {
@@ -84,6 +110,8 @@ h1, h2, h3, h4 {
 
 /* EFEITO DIGITAÇÃO (TYPEWRITER) */
 .project-subtitle {
+    position: relative;
+    z-index: 1;
     color: var(--gh-muted);
     margin-top: 0.6rem;
     font-size: 1.2rem;
@@ -105,6 +133,11 @@ h1, h2, h3, h4 {
 @keyframes blinkCursor {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+@keyframes pcbEnergyPulse {
+    0% { background-position: -100% -100%; }
+    100% { background-position: 200% 200%; }
 }
 
 /* ABOUT ME - FOTO EM DESTAQUE À ESQUERDA (400px) */
@@ -500,63 +533,5 @@ h1, h2, h3, h4 {
         width: 100%;
         max-width: 300px;
         height: 300px;
-    }
-}
-/* ==========================================================================
-   HEADER COM TRILHAS ELETRÔNICAS E PULSO DE ENERGIA (CHIP INVENTOR STYLE)
-   ========================================================================== */
-
-.project-header {
-    position: relative;
-    text-align: center;
-    padding: 4rem 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 2.5rem;
-    background-color: var(--gh-card-bg);
-    border: 1px solid var(--gh-border);
-    border-radius: 16px;
-    overflow: hidden;
-    
-    /* Desenho vetorial de circuito impresso */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cstyle%3E.t%7Bfill:none;stroke:%2358a6ff;stroke-width:1.5;stroke-opacity:0.25;stroke-linecap:round;stroke-linejoin:round%7D.v%7Bfill:%230d1117;stroke:%2358a6ff;stroke-width:1.5;stroke-opacity:0.5%7D.p%7Bfill:%2358a6ff;fill-opacity:0.5%7D%3C/style%3E%3Cpath class='t' d='M0 40h50l30 30v130M80 0v30l40 40h40l20 20v60l-30 30H0M200 180l-20 20M200 40h-60l-30-30V0M110 240v-40l30-30h60M0 130h40l20-20V80'/%3E%3Ccircle class='v' cx='80' cy='70' r='4'/%3E%3Ccircle class='p' cx='80' cy='70' r='2'/%3E%3Ccircle class='v' cx='160' cy='70' r='4'/%3E%3Ccircle class='p' cx='160' cy='70' r='2'/%3E%3Ccircle class='v' cx='180' cy='90' r='4'/%3E%3Ccircle class='v' cx='60' cy='80' r='4'/%3E%3Ccircle class='p' cx='60' cy='80' r='2'/%3E%3Ccircle class='v' cx='140' cy='170' r='4'/%3E%3C/svg%3E");
-    background-size: 240px 240px;
-    background-repeat: repeat;
-}
-
-/* Camada com animação do pulso de corrente passando pelas trilhas */
-.project-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, transparent 20%, rgba(88, 166, 255, 0.25) 50%, transparent 80%);
-    background-size: 200% 200%;
-    animation: pcbEnergyPulse 3.5s linear infinite;
-    pointer-events: none;
-}
-
-/* Brilho neon sutil por trás do texto principal */
-.project-header h1 {
-    position: relative;
-    z-index: 1;
-    font-size: 2.6rem;
-    text-shadow: 0 0 16px rgba(88, 166, 255, 0.4);
-}
-
-.project-subtitle {
-    position: relative;
-    z-index: 1;
-    color: var(--gh-muted);
-    margin-top: 0.6rem;
-    font-size: 1.2rem;
-    min-height: 1.8rem;
-}
-
-/* Animação do fluxo de energia */
-@keyframes pcbEnergyPulse {
-    0% {
-        background-position: -100% -100%;
-    }
-    100% {
-        background-position: 200% 200%;
     }
 }
