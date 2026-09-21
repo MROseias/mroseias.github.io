@@ -75,7 +75,7 @@ h1, h2, h3, h4 {
     margin-top: 2rem;
     margin-bottom: 2.5rem;
     background-image:
-        linear-gradient(rgba(13, 17, 23, 0.82), rgba(13, 17, 23, 0.88)),
+        linear-gradient(rgba(13, 17, 23, 0.78), rgba(13, 17, 23, 0.85)),
         url('assets/imgs/circuit-bg.jpg');
     background-size: cover;
     background-position: center;
