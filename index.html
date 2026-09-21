@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oseias Caires | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=14">
+    <link rel="stylesheet" href="assets/css/style.css?v=15">
 </head>
 <body>
 
@@ -22,20 +22,8 @@
 
     <div class="container" id="home">
 
-        <!-- Cabeçalho Principal com Placa de Circuito Animada + Efeito Digitação -->
+        <!-- Cabeçalho Principal com foto de circuito de fundo + Efeito Digitação -->
         <header class="project-header">
-            <svg id="circuitSvg" class="circuit-bg" viewBox="0 0 1000 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feGaussianBlur stdDeviation="2.5" result="blur"/>
-                        <feMerge>
-                            <feMergeNode in="blur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
-            </svg>
-
             <h1>Oseias Caires</h1>
             <p class="project-subtitle">
                 <span id="typing-text"></span><span class="typing-cursor">|</span>
@@ -339,180 +327,7 @@
         <p class="made-by">Made by 🦆 Oseias Caires</p>
     </footer>
 
-    <!-- ============================================================ -->
-    <!-- Script da placa de circuito animada (gera o SVG do header)   -->
-    <!-- ============================================================ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const svgNS = "http://www.w3.org/2000/svg";
-            const svg = document.getElementById("circuitSvg");
-            if (!svg) return;
-
-            const W = 1000, H = 300;
-
-            function el(name, attrs) {
-                const e = document.createElementNS(svgNS, name);
-                for (const k in attrs) e.setAttribute(k, attrs[k]);
-                return e;
-            }
-
-            let pulseCount = 0;
-
-            function buildChip(chip, cfg) {
-                const cx = chip.x + chip.w / 2;
-                const cy = chip.y + chip.h / 2;
-                const { pinsPerSide, pinLen, pinW, traceMod, stubBase, stubStep, runBase, runStep, viaR, chamfer } = cfg;
-
-                svg.appendChild(el("rect", { x: chip.x, y: chip.y, width: chip.w, height: chip.h, rx: 4, class: "chip-body" }));
-                svg.appendChild(el("circle", { cx: chip.x + 10, cy: chip.y + 10, r: 2.5, class: "pad" }));
-
-                const sides = [
-                    { x1: chip.x + 6, x2: chip.x + chip.w - 6, fixed: chip.y,          horiz: true,  outDir: -1 },
-                    { x1: chip.x + 6, x2: chip.x + chip.w - 6, fixed: chip.y + chip.h, horiz: true,  outDir:  1 },
-                    { x1: chip.y + 6, x2: chip.y + chip.h - 6, fixed: chip.x,          horiz: false, outDir: -1 },
-                    { x1: chip.y + 6, x2: chip.y + chip.h - 6, fixed: chip.x + chip.w, horiz: false, outDir:  1 }
-                ];
-
-                sides.forEach(side => {
-                    const range = side.x2 - side.x1;
-                    let stairIdx = 0;
-
-                    for (let i = 0; i < pinsPerSide; i++) {
-                        const t = side.x1 + (range * i) / (pinsPerSide - 1);
-
-                        let pinRect;
-                        if (side.horiz) {
-                            pinRect = { x: t - pinW / 2, y: side.outDir < 0 ? side.fixed - pinLen : side.fixed, width: pinW, height: pinLen };
-                        } else {
-                            pinRect = { x: side.outDir < 0 ? side.fixed - pinLen : side.fixed, y: t - pinW / 2, width: pinLen, height: pinW };
-                        }
-                        svg.appendChild(el("rect", { ...pinRect, class: "pin" }));
-
-                        if (i % traceMod === 1) {
-                            const k = stairIdx++;
-                            const stub = stubBase + k * stubStep;
-                            let x0, y0, dx1, dy1;
-
-                            if (side.horiz) {
-                                x0 = t; y0 = side.outDir < 0 ? side.fixed - pinLen : side.fixed + pinLen;
-                                dx1 = 0; dy1 = side.outDir;
-                            } else {
-                                x0 = side.outDir < 0 ? side.fixed - pinLen : side.fixed + pinLen; y0 = t;
-                                dx1 = side.outDir; dy1 = 0;
-                            }
-
-                            const cornerX = x0 + dx1 * stub, cornerY = y0 + dy1 * stub;
-                            let dx2 = 0, dy2 = 0;
-                            if (side.horiz) { dx2 = (t < cx) ? -1 : 1; }
-                            else { dy2 = (t < cy) ? -1 : 1; }
-
-                            const runLen = runBase + k * runStep;
-                            const p1x = cornerX - dx1 * chamfer, p1y = cornerY - dy1 * chamfer;
-                            const p2x = cornerX + dx2 * chamfer, p2y = cornerY + dy2 * chamfer;
-                            const endX = cornerX + dx2 * runLen, endY = cornerY + dy2 * runLen;
-
-                            const d = `M${x0},${y0} L${p1x},${p1y} L${p2x},${p2y} L${endX},${endY}`;
-
-                            svg.appendChild(el("path", { d, class: "trace", pathLength: "1000" }));
-                            svg.appendChild(el("circle", { cx: endX, cy: endY, r: viaR, class: "via-ring" }));
-                            svg.appendChild(el("circle", { cx: endX, cy: endY, r: viaR * 0.4, class: "via-hole" }));
-
-                            if (pulseCount % 4 === 0) {
-                                const dur = (3.5 + Math.random() * 2.5).toFixed(2);
-                                const delay = (Math.random() * 3).toFixed(2);
-                                const pulse = el("path", { d, class: "pulse", pathLength: "1000" });
-                                pulse.style.animationDuration = dur + "s";
-                                pulse.style.animationDelay = delay + "s";
-                                svg.appendChild(pulse);
-                            }
-                            pulseCount++;
-                        }
-                    }
-                });
-            }
-
-            // Chip principal (QFP grande, denso)
-            buildChip(
-                { x: 430, y: 90, w: 140, h: 115 },
-                { pinsPerSide: 25, pinLen: 8, pinW: 2, traceMod: 2, stubBase: 12, stubStep: 8, runBase: 35, runStep: 16, viaR: 3.2, chamfer: 8 }
-            );
-
-            // Chip secundário (menor, canto inferior esquerdo)
-            buildChip(
-                { x: 70, y: 195, w: 78, h: 52 },
-                { pinsPerSide: 9, pinLen: 6, pinW: 1.6, traceMod: 2, stubBase: 8, stubStep: 6, runBase: 20, runStep: 10, viaR: 2.4, chamfer: 6 }
-            );
-
-            // Chip secundário (menor, canto superior direito)
-            buildChip(
-                { x: 840, y: 30, w: 78, h: 52 },
-                { pinsPerSide: 9, pinLen: 6, pinW: 1.6, traceMod: 2, stubBase: 8, stubStep: 6, runBase: 20, runStep: 10, viaR: 2.4, chamfer: 6 }
-            );
-
-            // ===== Componentes ilustrados: resistores, capacitores, conector =====
-            function drawResistor(x, y, horiz) {
-                if (horiz) {
-                    svg.appendChild(el("line", { x1: x - 9, y1: y, x2: x, y2: y, class: "lead" }));
-                    svg.appendChild(el("rect", { x, y: y - 3, width: 18, height: 6, rx: 1.5, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x + 18, y1: y, x2: x + 27, y2: y, class: "lead" }));
-                } else {
-                    svg.appendChild(el("line", { x1: x, y1: y - 9, x2: x, y2: y, class: "lead" }));
-                    svg.appendChild(el("rect", { x: x - 3, y, width: 6, height: 18, rx: 1.5, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x, y1: y + 18, x2: x, y2: y + 27, class: "lead" }));
-                }
-            }
-
-            function drawCapacitor(x, y, horiz) {
-                if (horiz) {
-                    svg.appendChild(el("line", { x1: x - 11, y1: y, x2: x - 2, y2: y, class: "lead" }));
-                    svg.appendChild(el("line", { x1: x - 2, y1: y - 7, x2: x - 2, y2: y + 7, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x + 2, y1: y - 7, x2: x + 2, y2: y + 7, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x + 2, y1: y, x2: x + 11, y2: y, class: "lead" }));
-                } else {
-                    svg.appendChild(el("line", { x1: x, y1: y - 11, x2: x, y2: y - 2, class: "lead" }));
-                    svg.appendChild(el("line", { x1: x - 7, y1: y - 2, x2: x + 7, y2: y - 2, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x - 7, y1: y + 2, x2: x + 7, y2: y + 2, class: "component-body" }));
-                    svg.appendChild(el("line", { x1: x, y1: y + 2, x2: x, y2: y + 11, class: "lead" }));
-                }
-            }
-
-            function drawHeaderConnector(x, y, count, horiz) {
-                for (let i = 0; i < count; i++) {
-                    const px = horiz ? x + i * 9 : x;
-                    const py = horiz ? y : y + i * 9;
-                    svg.appendChild(el("rect", { x: px - 2, y: py - 2, width: 4, height: 4, class: "component-fill" }));
-                }
-            }
-
-            drawResistor(660, 40, true);
-            drawResistor(230, 255, true);
-            drawResistor(940, 220, false);
-            drawResistor(35, 90, false);
-            drawResistor(600, 265, true);
-
-            drawCapacitor(720, 250, true);
-            drawCapacitor(180, 100, false);
-            drawCapacitor(960, 130, false);
-            drawCapacitor(300, 30, true);
-
-            drawHeaderConnector(560, 278, 5, true);
-            drawHeaderConnector(15, 130, 4, false);
-
-            // Vias decorativas discretas espalhadas pelo fundo
-            for (let i = 0; i < 18; i++) {
-                const x = Math.random() * W;
-                const y = Math.random() * H;
-                const nearMain = x > 405 && x < 595 && y > 70 && y < 230;
-                const nearS1 = x > 50 && x < 168 && y > 175 && y < 267;
-                const nearS2 = x > 820 && x < 938 && y > 10 && y < 102;
-                if (nearMain || nearS1 || nearS2) continue;
-                svg.appendChild(el("circle", { cx: x, cy: y, r: 2.4, class: "via-ring" }));
-                svg.appendChild(el("circle", { cx: x, cy: y, r: 0.9, class: "via-hole" }));
-            }
-        });
-    </script>
-
-    <!-- Scripts do Modal e do Efeito Digitação -->
+    <!-- Script do Modal e do Efeito Digitação -->
     <script>
         // Modal Control
         function openModal(id) {
@@ -532,7 +347,6 @@
             "Mechatronics Engineer",
             "Embedded Systems & IoT",
             "Microelectronics (ASIC / SystemVerilog)",
-            "Product Design & Prototyping",
             "Data Engineer"
         ];
 
